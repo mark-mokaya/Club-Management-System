@@ -85,25 +85,26 @@
             <a class="navbar-brand" href="#" style="color: white; margin-top:-10px; " id="brand-name">Clubs Management System</a>
         </div>
 
-      <!--  <div class="collapse navbar-collapse " id="navbar" style="margin-right: -95px">
+        <div class="collapse navbar-collapse " id="navbar" style="margin-right: -95px">
             <ul class="nav navbar-nav navbar-right" >
-                <li class="dropdown"> -->
-                    <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Login </a> -->
-                    <!-- <a href="#" class="dropdown-toggle " data-toggle="dropdown"  style="color: white;background-color: black ;" ><b>Login</b> <span class="caret"></span></a>
+                <li class="dropdown">
+                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Login </a> -->
+                    <a href="#" class="dropdown-toggle " data-toggle="dropdown"  style="color: white;background-color: black ;" ><b>Login</b> <span class="caret"></span></a>
             <ul id="login-dp" class="dropdown-menu">
                 <li>
                      <div class="row">
 
                             <div class="col-md-12">
 
-                                <?php echo form_open('LoginCtrl/login'); ?> -->
-                                <!--  <form class="form" role="form" method="post" action="" accept-charset="UTF-8" id="login-nav"> -->
-                                <!-- <div class="messagebox alert alert-danger"  id="fail" style="display: none">
+                                <?php echo form_open('application/controllers/LoginCtrl/login'); ?>
+                                <!--localhost/cms/application/controllers/LoginCtrl/login-->
+                                <form class="form" role="form" method="post" action="" accept-charset="UTF-8" id="login-nav">
+                                 <div class="messagebox alert alert-danger"  id="fail" style="display: none">
                                     <button type="button" class="close" data-dismiss="alert"></button>
                                         <div class="cs-text">
                                             <i class="fa fa-times-circle"></i>
                                             <strong>Invalid credentials</strong>
-                                         </div>
+                                        </div>
                                 </div>
                                         <div class="form-group">
                                              <label class="sr-only" for="username">Email address</label>
@@ -116,9 +117,9 @@
                                         <div class="form-group">
                                              <button type="submit" id="submit" class="btn btn-primary btn-block">Login</button>
 
-                                        </div> -->
-                                <!-- </form>-->
-                                <!-- <?php echo form_close(); ?>
+                                        </div>
+                                </form>
+                                <?php echo form_close(); ?>
                             </div>
 
                      </div>
@@ -130,8 +131,8 @@
                 </li>
             </ul>
 
-        </div> -->
-
+        </div>
+        <!--
         <div class="collapse navbar-collapse " id="navbar" style="margin-right: -95px">
 
               <ul class="nav navbar-nav navbar-right ml-auto mr-3">
@@ -141,7 +142,7 @@
                    </li>
                   </ul>
 
-        </div>
+        </div> -->
     </div>
 </nav>
 

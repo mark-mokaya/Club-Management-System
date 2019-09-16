@@ -30,12 +30,12 @@ public function index()
     {
         // begin test @lkasera
 
-        // $this->cas->force_auth();//calling CAS for authentication
-        // $user = $this->cas->user();//calling the array with username from CAS and assignin it to the variable $user - @lkasera
-    		// $casuser = $user->userlogin;//fetching the username from CAS - @lkasera
-    		// $this->cas->logout($url = '');//testing CAS - kill CAS session
-    		// $this->load->view('welcome_message');
-        // echo $user->userlogin; die();
+        //$this->cas->force_auth();//calling CAS for authentication
+        //$user = $this->cas->user();//calling the array with username from CAS and assignin it to the variable $user - @lkasera
+    		//$casuser = $user->userlogin;//fetching the username from CAS - @lkasera
+    		//$this->cas->logout($url = '');//testing CAS - kill CAS session
+    		//$this->load->view('welcome_message');
+        //echo $user->userlogin; die();
 
         // end test @lkasera
         $data = array('profile'=>$this->mainmodel->clubProfile());
@@ -180,7 +180,8 @@ public function admin()
                      $data = array('profile'=>$this->mainmodel->clubProfile());
                       $this->load->view('login',$data);
             }
-                else{
+                else
+                {
                     $this->load->view('admin/admin');
                 }
     }
