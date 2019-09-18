@@ -96,7 +96,7 @@
 
                             <div class="col-md-12">
 
-                                <?php echo form_open('application/controllers/LoginCtrl/login'); ?>
+                                <?php echo form_open('LoginCtrl/login'); ?>
                                 <!--localhost/cms/application/controllers/LoginCtrl/login-->
                                 <form class="form" role="form" method="post" action="" accept-charset="UTF-8" id="login-nav">
                                  <div class="messagebox alert alert-danger"  id="fail" style="display: none">

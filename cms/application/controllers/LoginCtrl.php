@@ -30,37 +30,17 @@ public function login()
        // $db = mysqli_connect('localhost','dalzai','mykhailnava1','cms')
               //  or die('Error connecting to MySQL server.');
 
-        //$this->cas->force_auth();//calling CAS for authentication
-        //$user = $this->cas->user();//calling the array with username from CAS and assignin it to the variable $user - @smokoro
+        $this->cas->force_auth();//calling CAS for authentication
+        $user = $this->cas->user();//calling the array with username from CAS and assignin it to the variable $user - @smokoro
         //lower case
         $username = strtolower($user->userlogin);
-        //$username = $this->input->post('username');
+        $username = $this->input->post('username');
 
-              //$result = $this->login->validate_ldap_official($username);//clubofficial
-              //$result3 = $this->login->validate_ldap_stdcouncil($username);//clubofficial//student council (student)
-            //$result2 = $this->login->validate_ldap_admin($username);//admin*/
-        $result2 = $this->login->validate_ldap_admin($username);//admin*/
-        if($result2)
-                {
-                    //take the returned data and create a session for it (adminName and adminID).
-                    foreach ($result2 as $row)
-                            {
-                                $fullName=$row->firstName."&nbsp;".$row->lastName;
-                                $userID=$row->staffID;
-                                $roleID=$row->roleID;
-                                $sessdata=array();
-
-                                if($roleID==1||$roleID==2)
-                                    {
-                                       $sessdata = array('adminName' =>$fullName,'adminID'=>$userID,'admin_login'=>TRUE);
-                                        $this->session->set_userdata($sessdata);
-
-                                        $redirectLink="Home/admin";
-                                   }
-
-                            }
-                            redirect($redirectLink);
-                }
+            $result = $this->login->validate_ldap_official($username);//clubofficial
+            $result3 = $this->login->validate_ldap_stdcouncil($username);//clubofficial//student council (student)
+            $result2 = $this->login->validate_ldap_admin($username);//admin*/
+        $result2 = $this->login->validate_ldap_admin($username);//admin
+        
         /*$sql = "SELECT * FROM admin WHERE userName LIKE".$username.";";
         $sql = mysqli_query($db,$sql);
         while ($row = mysqli_fetch_array($sql)) 
@@ -83,8 +63,8 @@ public function login()
                         $redirectLink="Home/admin";
                     }
             }
-            redirect($redirectLink);*/
-            /*
+            redirect($redirectLink);
+            */
             if($result&&!$result3)
                 {
                     //take the returned data and create a session for it.
@@ -153,7 +133,7 @@ public function login()
 
 
        }
-/*
+
 public function usertype()
     {
 
@@ -218,7 +198,7 @@ public function logoutclub()
         redirect(base_url(('Home')));
 
     }
-}*/
+}
 
 
 ?>
