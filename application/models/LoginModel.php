@@ -90,7 +90,7 @@ public function validate_ldap_stdcouncil($username)
         }
 
 
-public function validate_ldap_admin($username)
+public function validate_ldap_admin($username,$password)
         {
 
                         $this->db->select('*');
