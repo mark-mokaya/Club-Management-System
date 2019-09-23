@@ -20,8 +20,8 @@ class LoginModel extends CI_Model
 
 public  function ldapAuthenticate($ldapserver, $ldapport, $username, $password){
             $loggedin = false;
-            $server = "ldap://".$ldapserver;
-            $ldapconn = ldap_connect($server, $ldapport);
+            //$server = "ldap://".$ldapserver;
+           // $ldapconn = ldap_connect($server, $ldapport);
 
             if(intval($username)){
                 $user = "STUDENTS\\".$username;
@@ -90,15 +90,13 @@ public function validate_ldap_stdcouncil($username)
         }
 
 
-public function validate_ldap_admin($username)
+public function validate_ldap_admin($username,$password)
         {
-
-
 
                         $this->db->select('*');
                         $this->db->from('admin');
                         $this->db->where('userName', $username);
-                        //$this->db->where('password', $password);
+                        $this->db->where('password', $password);
                         $this->db->where('status', 1);
                         $this->db->limit(1);
                         $query = $this->db->get();
