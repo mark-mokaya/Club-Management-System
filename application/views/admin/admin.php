@@ -98,6 +98,7 @@
                         </div>
 
                         <div class="modal-body">
+                            <?php echo form_open('index.php/Home/registerclub'); ?>
                             <form role="form" method="POST" action="" id="clubreg">
 
                                 <div class="messagebox alert alert-success" id="success" style="display: none;position:relative;width:82%;top: 0%;left: 10%;">
@@ -126,8 +127,7 @@
                                     </span>
                                 </div>
 
-
-                                    <div class="form-group col-lg-12">
+                                            <div class="form-group col-lg-12">
                                             <label>Club Email<span class="star">*</span></label>
                                             <input id="clubid" class="form-control" placeholder="Club Email" name="clubid" type="email" parsley-type="email" required autocomplete="off" />
                                         </div>
@@ -167,7 +167,7 @@
 
 
                             </form>
-
+                            <?php echo form_close(); ?>
                         </div>
                         <!--modal-body-->
                     </div>
