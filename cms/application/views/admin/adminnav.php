@@ -7,7 +7,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#" style="color: black"><img id="logoimage" class="img-responsive" src=" <?php echo base_url();?>assets/img/sulogo.png" style="max-width: 140px;min-height:  20px ;max-height: 40px;margin-top: -10px; margin-left: -10px"</a>
+                <a class="navbar-brand" href="#" style="color: black"><img id="logoimage" class="img-responsive" src=" <?php echo base_url();?>assets/img/sulogo.png" style="max-width: 140px;min-height:  20px ;max-height: 40px;margin-top: -10px; margin-left: -10px"/a>
                 <a class="navbar-brand" href="#" style="color: black; margin-top:-10px; " id="brand-name">Clubs Management System</a>
             </div>
             <!-- /.navbar-header -->
@@ -41,20 +41,20 @@
                             <a href="#"><i class="fa fa-user fa-fw"></i> Manage Users<span class="fa arrow"></span></a>
                              <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="<?php echo base_url('Home/adminreg');?>"><i class="fa fa-plus-circle fa-fw"></i>&nbsp;Administrator</a>
+                                        <a href="<?php echo base_url('index.php/Home/adminreg');?>"><i class="fa fa-plus-circle fa-fw"></i>&nbsp;Administrator</a>
                                     </li>
                                     <li>
                                         <a href="#"><i class="fa fa-angle-double-right fa-fw"></i>&nbsp;Manage Club Official<span class="fa arrow"></span></a>
 
                                          <ul class="nav nav-third-level">
                                             <li>
-                                                <a href="<?php echo base_url('Home/clubofficialreg');?>"><i class="fa fa-plus-circle fa-fw"></i>&nbsp;Add/View Club Official</a>
+                                                <a href="<?php echo base_url('index.php/Home/clubofficialreg');?>"><i class="fa fa-plus-circle fa-fw"></i>&nbsp;Add/View Club Official</a>
                                             </li>
 
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="<?php echo base_url('Home/seedmember');?>"><i class="fa fa-plus-circle fa-fw"></i>&nbsp;Seed Club Member</a>
+                                        <a href="<?php echo base_url('index.php/Home/seedmember');?>"><i class="fa fa-plus-circle fa-fw"></i>&nbsp;Seed Club Member</a>
                                     </li>
 
                             </ul>
@@ -69,13 +69,13 @@
                             <!-- /.nav-second-level -->
                             <ul class="nav nav-second-level">
                                 <li>
-                                     <a  href="<?php echo base_url('Home/admin'); ?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Add | View Club</a>
+                                     <a  href="<?php echo base_url('index.php/Home/admin'); ?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Add | View Club</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url('Home/inactiveclubs');?>"><i class="fa fa-remove fa-fw" ></i>Inactive Clubs</a>
+                                    <a href="<?php echo base_url('index.php/Home/inactiveclubs');?>"><i class="fa fa-remove fa-fw" ></i>Inactive Clubs</a>
                                 </li>
                                 <li>
-                                     <a  href="<?php echo base_url('Home/clubdescription'); ?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Add | View Club Description</a>
+                                     <a  href="<?php echo base_url('index.php/Home/clubdescription'); ?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Add | View Club Description</a>
                                 </li>
                                 <!-- <li>
                                      <a  href="<?php echo base_url('Home/clubroles'); ?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Add | View Club Roles</a>
@@ -89,10 +89,10 @@
                             <a href="#"><i class="fa fa-bars fa-fw"></i> Club Members Views<span class="fa arrow"></span></a>
                              <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="<?php echo base_url('Home/clubmemberviews');?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Members Per Club</a>
+                                        <a href="<?php echo base_url('index.php/Home/clubmemberviews');?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Members Per Club</a>
                                     </li>
                                     <li>
-                                        <a href="<?php echo base_url('Home/clubofficialviews');?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Officials Per Club</a>
+                                        <a href="<?php echo base_url('index.php/Home/clubofficialviews');?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Officials Per Club</a>
                                     </li>
 
 
@@ -104,11 +104,11 @@
                             <a href="#"><i class="fa fa-group fa-fw"></i> Club Meetings Views<span class="fa arrow"></span></a>
                              <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="<?php echo base_url('ClubController/meetingsviews');?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Club Meetings & Attendance</a>
+                                        <a href="<?php echo base_url('index.php/ClubController/meetingsviews');?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Club Meetings & Attendance</a>
                                     </li>
 
                                     <li>
-                                        <a href="<?php echo base_url('ClubController/club_minutes_views');?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Club Minutes</a>
+                                        <a href="<?php echo base_url('index.php/ClubController/club_minutes_views');?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Club Minutes</a>
                                     </li>
                             </ul>
                             <!--second-level-->
@@ -117,10 +117,10 @@
                             <a href="#"><i class="fa fa-calendar fa-fw"></i> Club Events Views<span class="fa arrow"></span></a>
                              <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="<?php echo base_url('ClubController/eventsviews');?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Club Events & Attendance</a>
+                                        <a href="<?php echo base_url('index.php/ClubController/eventsviews');?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Club Events & Attendance</a>
                                     </li>
                                     <li>
-                                        <a href="<?php echo base_url('ClubController/event_report_views');?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Club Events Reports</a>
+                                        <a href="<?php echo base_url('index.php/ClubController/event_report_views');?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Club Events Reports</a>
                                     </li>
                             </ul>
                             <!--second-level-->
@@ -129,16 +129,16 @@
                             <a href="#"><i class="fa fa-info-circle fa-fw"></i> Club Profiles<span class="fa arrow"></span></a>
                              <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="<?php echo base_url(); ?>Home/club_constitutions"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Club Constitutions</a>
+                                        <a href="<?php echo base_url("index.php/Home/club_constitutions"); ?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Club Constitutions</a>
                                     </li>
                                     <li>
-                                        <a href="<?php echo base_url(); ?>Home/club_histories"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Clubs History</a>
+                                        <a href="<?php echo base_url("index.php/Home/club_histories"); ?>><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Clubs History</a>
                                     </li>
                             </ul>
                             <!--second-level-->
                         </li>
                         <li>
-                            <a href="<?php echo base_url(); ?>Home/generalfilesupload"><i class="fa fa-file-o fa-fw"></i> General File Uploads</a>
+                            <a href="<?php echo base_url("index.php/Home/generalfilesupload"); ?>"><i class="fa fa-file-o fa-fw"></i> General File Uploads</a>
                         </li>
                         <!-- <li>
 

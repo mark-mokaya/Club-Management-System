@@ -51,10 +51,9 @@
     </div>
   </div>
 
-  <?php echo form_open('LoginCtrl/login'); ?>
+  <?php echo form_open('index.php/LoginCtrl/login'); ?>
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4">
-
 			<div class="form-group">
 				<input type="text" name="username" class="form-control" placeholder="Enter Username" required autofocus>
 			</div>

@@ -1,4 +1,4 @@
-
+<!--
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +8,7 @@
  hello
 </body>
 </html>
-<!--
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,7 +46,7 @@
 
 <div id="wrapper">
 
-    <?php $this->load->view('admin/adminnav.php'); ?><!--navigation -->
+    <?php $this->load->view('admin/adminnav.php'); ?>
 
 
     <div id="page-wrapper">

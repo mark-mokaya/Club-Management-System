@@ -1,7 +1,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="utf-8">
@@ -17,7 +16,6 @@
     <link href="<?php echo base_url();?>assets/general-css/customcss.css" rel="stylesheet" type="text/css">
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url();?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     <link rel="icon" type="image/icon" href="<?php echo base_url();?>assets/img/sulogoicon.png"/>
 
     <!-- Custom Fonts -->
@@ -48,7 +46,7 @@
 </head>
 
 <body>
-  <div class="overlay" > <?php if(isset($_SESSION['msg']))
+  <div class="overlay"> <?php if(isset($_SESSION['msg']))
     {
       $msg = $_SESSION['msg'];
       $successful= $msg['success']; $failed=  $msg['error'];
@@ -68,10 +66,6 @@
         </div>
         </div>';} $_SESSION['msg'] =array('error'=>'','success'=>'');}else{ echo '<div></div>';}?></div>
 
-
-
-
-
 <nav class="navbar navbar-findcond navbar-fixed-top" style="background-color: black; height: 60px; padding-top: 10px">
     <div class="container">
         <div class="navbar-header">
@@ -88,24 +82,21 @@
         <div class="collapse navbar-collapse " id="navbar" style="margin-right: -95px">
             <ul class="nav navbar-nav navbar-right" >
                 <li class="dropdown">
-                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Login </a> -->
+                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Login </a>-->
                     <a href="#" class="dropdown-toggle " data-toggle="dropdown"  style="color: white;background-color: black ;" ><b>Login</b> <span class="caret"></span></a>
             <ul id="login-dp" class="dropdown-menu">
                 <li>
                      <div class="row">
-
                             <div class="col-md-12">
-
-                                <?php echo form_open('LoginCtrl/login'); ?>
-                                <!--localhost/cms/application/controllers/LoginCtrl/login-->
-                                <form class="form" role="form" method="post" action="" accept-charset="UTF-8" id="login-nav">
-                                 <div class="messagebox alert alert-danger"  id="fail" style="display: none">
+                                <?php echo form_open('index.php/LoginCtrl/login'); ?>
+                                <form class="form" role="form" method="post" accept-charset="UTF-8" id="login-nav">
+                                <!-- <div class="messagebox alert alert-danger"  id="fail" style="display: none">
                                     <button type="button" class="close" data-dismiss="alert"></button>
                                         <div class="cs-text">
                                             <i class="fa fa-times-circle"></i>
                                             <strong>Invalid credentials</strong>
                                         </div>
-                                </div>
+                                </div>-->
                                         <div class="form-group">
                                              <label class="sr-only" for="username">Email address</label>
                                              <input class="form-control" name="username" id="username" placeholder="Username" required autocomplete="off" >
@@ -115,22 +106,13 @@
                                              <input type="password" name="password" class="form-control" id="password" placeholder="Password" required autocomplete="off" >
                                         </div>
                                         <div class="form-group">
-                                             <button type="submit" id="submit" class="btn btn-primary btn-block">Login</button>
-
+                                             <button type="submit" id="submit" name="submit" class="btn btn-primary btn-block">Login</button>
                                         </div>
                                 </form>
                                 <?php echo form_close(); ?>
                             </div>
 
                      </div>
-                </li>
-            </ul>
-                </li>
-            </ul>
-
-                </li>
-            </ul>
-
         </div>
         <!--
         <div class="collapse navbar-collapse " id="navbar" style="margin-right: -95px">
