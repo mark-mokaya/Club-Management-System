@@ -1,1 +1,0 @@
-ALTER TABLE `clubs` ADD `clubProfile` VARCHAR(250) NULL AFTER `registrationBasis`;
