@@ -76,8 +76,8 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> 'mysql:host=localhost; dbname=clubs; charset=utf8;',
 	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
+	'username' => 'dalzai',
+	'password' => 'mykhailnava1',
 	'database' => 'clubs',
 	'dbdriver' => 'pdo',
 	'dbprefix' => '',
