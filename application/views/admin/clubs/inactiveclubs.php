@@ -15,7 +15,7 @@
     
     <?php $this->load->view('headerlinks/headerlinks.php'); ?>
     
-    <link href="<?php echo base_url();?>assets/general-css/customcss.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url('assets/general-css/customcss.css');?>" rel="stylesheet" type="text/css">
 
 
     <style type="text/css">
@@ -58,7 +58,7 @@
             <br><br>
             <div class="row">
                 <div class="col-md-12">
-                    <table  class="table table-striped table-bordered table-hover display responsive nowrap" cellspacing="0" width="100%"" id="inactiveclubs"  >
+                    <table  class="table table-striped table-bordered table-hover display responsive nowrap" cellspacing="0" width="100%" id="inactiveclubs"  >
                         <thead>
                             <tr>
                                         
@@ -141,8 +141,8 @@
                      var table=$('#inactiveclubs').DataTable({responsive:true,"iDisplayLength": 10,"lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25, 50, 100, 200, "All"]],
 
                     "ajax": {
-                    "url":"<?php echo base_url('Home/inactiveclubslist'); ?>",
-                    "type":"POST",
+                    "url":"<?php echo base_url('index.php/Home/inactiveclubslist'); ?>",
+                    "type":"GET",
                     "dataType":"json"},
                     "columns": [
                     { "data": "count",responsivePriority: 1 },
@@ -211,7 +211,7 @@ function activateclub(objButton)
             $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url('Home/activateclub'); ?>",
+                    url: "<?php echo base_url('index.php/Home/activateclub'); ?>",
                     data:{ id:id},
                     dataType:'json',
 

@@ -36,7 +36,7 @@ public function login()
         //$username = strtolower($user->userlogin);
         $username = $this->input->post('username');
         $password = $this->input->post('password');
-        //$result = $this->login->validate_ldap_official($username);//clubofficial
+        $result = $this->login->validate_ldap_official($username,$password);//clubofficial
         //$result3 = $this->login->validate_ldap_stdcouncil($username);//clubofficial//student council (student)
         //$result2 = $this->login->validate_ldap_admin($username);//admin*/
         $result2 = $this->login->validate_ldap_admin($username,$password);//admin
@@ -64,7 +64,7 @@ public function login()
                     }
             }
             redirect($redirectLink);*/
-            /*
+            
             if($result&&!$result3)
                 {
                     //take the returned data and create a session for it.
@@ -77,10 +77,9 @@ public function login()
                                 $sessdata = array('officialName' =>$fullName,'suID'=>$studentID,'clubhead_login'=>TRUE);
                                 $this->session->set_userdata($sessdata);
 
-
                             }
-                            redirect('ClubController/rolespage');
-                }else*/ if($result2)
+                            redirect('index.php/ClubController/rolespage');
+                }else if($result2)
                 {
                     //take the returned data and create a session for it (adminName and adminID).
                     foreach ($result2 as $row)
@@ -172,7 +171,7 @@ public function usertype()
             }
 
     }
-
+*/}
 public function logoutadmin()
     {
         $this->session->unset_userdata('fullName');
@@ -181,10 +180,10 @@ public function logoutadmin()
 
         $data = array('profile'=>$this->mainmodel->clubProfile());
 
-        $this->cas->logout($url = ''); // Log out of CAS @lkasera
+        //$this->cas->logout($url = ''); // Log out of CAS @lkasera
         $this->load->view('login',$data);
     }
-
+/*
 public function logoutclub()
     {
         $this->session->unset_userdata('clubName');
@@ -197,8 +196,6 @@ public function logoutclub()
         $this->cas->logout($url = ''); // Log out of CAS @lkasera
         redirect(base_url(('Home')));
 */
-    }
+    
 }
-
-
 ?>

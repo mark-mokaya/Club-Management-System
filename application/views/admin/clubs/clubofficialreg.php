@@ -402,7 +402,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title" "> <b> <span id="fullname"></span></b></h4>
+                    <h4 class="modal-title"> <b> <span id="fullname"></span></b></h4>
                     </div>
                 <div class="modal-body">
                     <center>
@@ -478,8 +478,8 @@
 
                     //ajax script to retrieve data club officials from db
                     "ajax": {
-                    "url":"<?php echo base_url('Home/clubofficialslist'); ?>",
-                    "type":"POST",
+                    "url":"<?php echo base_url('index.php/Home/clubofficialslist'); ?>",
+                    "type":"GET",
                     "dataType":"json"},
                     "columns": [
                     { "data": "count",responsivePriority: 1 },//define column widths
@@ -552,7 +552,7 @@ function submitData()
             $.ajax(//ajax script to post the data without page refresh
                 {
                     type:"post",
-                    url: "<?php echo base_url('Home/clubofficialregistration')?>",
+                    url: "<?php echo base_url('index.php/Home/clubofficialregistration')?>",
                     data:{ officialid:officialid,club:club,role:role,startdate:startdate,enddate:enddate},
                     dataType:'json',
 
@@ -620,7 +620,7 @@ function update()
             $.ajax(//ajax script to post the data without page refresh
                 {
                     type:"post",
-                    url: "<?php echo base_url('Home/clubofficialupdating')?>",
+                    url: "<?php echo base_url('index.php/Home/clubofficialupdating')?>",
                     data:{ officialid:officialid,club:club,role:role,startdate:startdate,enddate:enddate},
                    
                     dataType:'json',
@@ -674,7 +674,7 @@ function editcofficial(objButton)
      $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/getclubofficial",
+                    url: "<?php echo base_url('index.php/Home/getclubofficial'); ?>",
                     data:{ id:id},
                     dataType:'json',
 
@@ -737,7 +737,7 @@ $( "#editclubofficialreg #club").on('click',function(event)
      $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/clubdropdownlist",
+                    url: "<?php echo base_url('index.php/Home/clubdropdownlist'); ?>",
                     dataType:'json',
 
                     success:function(data)
@@ -787,7 +787,7 @@ $( "#editclubofficial #editclubofficialreg #role").on('click', function(event)
      $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/c_rolesdropdown",
+                    url: "<?php echo base_url('index.php/Home/c_rolesdropdown'); ?>",
                     dataType:'json',
 
                     success:function(data)
@@ -839,7 +839,7 @@ $( "#regmodal").on('click', function(event)
             $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/clubdropdownlist",
+                    url: "<?php echo base_url('index.php/Home/clubdropdownlist'); ?>",
                     dataType:'json',
 
                     success:function(data)
@@ -885,7 +885,7 @@ $( "#regmodal").on('click', function(event)
             $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/c_rolesdropdown",
+                    url: "<?php echo base_url('index.php/Home/c_rolesdropdown'); ?>",
                     dataType:'json',
 
                     success:function(data)
@@ -950,8 +950,8 @@ function deleteclubofficial(objButton)
             $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/deleteclubofficial",
-                    data:{ id:id},
+                    url: "<?php echo base_url('index.php/Home/deleteclubofficial'); ?>",
+                    data:{id:id},
                     dataType:'json',
 
                     success:function(data)
@@ -1010,7 +1010,7 @@ function disableclubofficial(objButton)
             $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/disableclubofficial",
+                    url: "<?php echo base_url('index.php/Home/disableclubofficial'); ?>",
                     data:{ id:id},
                     dataType:'json',
 
@@ -1065,7 +1065,7 @@ function c_o_view(objButton)
      $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/viewclubofficial",
+                    url: "<?php echo base_url('index.php/Home/viewclubofficial'); ?>",
                     data:{ id:id},
                     dataType:'json',
 
@@ -1111,7 +1111,7 @@ $( "#clubofficialreg #club").on('change', function(event)
              $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/officialsnominees",
+                    url: "<?php echo base_url('index.php/Home/officialsnominees'); ?>",
                     data:{ clubid:clubid},
                     dataType:'json',
 
@@ -1171,7 +1171,7 @@ $( "#editclubofficialreg #club").on('change', function(event)
              $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/officialsnominees",
+                    url: "<?php echo base_url('index.php/Home/officialsnominees'); ?>",
                     data:{ clubid:clubid},
                     dataType:'json',
 

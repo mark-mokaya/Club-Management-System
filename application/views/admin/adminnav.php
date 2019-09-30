@@ -22,7 +22,7 @@
 
 
                         <li class="divider"></li>
-                        <li><a href="<?php echo base_url('LoginCtrl/logoutadmin'); ?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="<?php echo base_url('index.php/LoginCtrl/logoutadmin'); ?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->

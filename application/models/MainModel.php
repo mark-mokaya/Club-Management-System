@@ -123,7 +123,7 @@ public function activateclub($clubid=NULL)
  public function deleteclubofficial($pid=NULL)
  {
    
-    $this->db->where('pID',$pid);
+    $this->db->where('studentID',$pid);
     $this->db->delete('clubofficials');
     $affected=$this->db->affected_rows();
         if($affected>0)
@@ -137,7 +137,7 @@ public function activateclub($clubid=NULL)
  }
 public function disableclubofficial($pid=NULL,$changeStatus=NULL)
  {
-    $this->db->where('pID',$pid);
+    $this->db->where('studentID',$pid);
     $this->db->update('clubofficials',$changeStatus);
     $affected=$this->db->affected_rows();
         if($affected>0)
@@ -152,7 +152,7 @@ public function disableclubofficial($pid=NULL,$changeStatus=NULL)
 public function updatememberstableonofficialdelete($pid=NULL,$updatememberstable=NULL)
  {
    
-    $this->db->where('pID',$pid);
+    $this->db->where('studentID',$pid);
     $this->db->update('clubmembers',$updatememberstable);
     $affected=$this->db->affected_rows();
         if($affected>0)

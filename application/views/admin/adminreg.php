@@ -145,7 +145,7 @@
 
                                         <div class="messagebox alert alert-danger" id="activeofficial" >
                                             <span>
-                                                    <strong>Role Conflic: </strong>An active club official cannot be a club representative
+                                                    <strong>Role Conflict: </strong>An active club official cannot be a club representative
                                             </span>
                                         </div>
 
@@ -310,7 +310,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title" "> <b> <span id="fullname"></span></b></h4>
+                    <h4 class="modal-title"> <b> <span id="fullname"></span></b></h4>
                     </div>
                 <div class="modal-body">
                     <center>
@@ -420,8 +420,8 @@ $(document).ready(function ()
                     var table=$('#adminlist').DataTable({responsive:true,"iDisplayLength": 10,"lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25, 50, 100, 200, "All"]],
 
                     "ajax": {
-                    "url":"<?php echo base_url('Home/adminlist');?>",
-                    "type":"POST",
+                    "url":"<?php echo base_url('index.php/Home/adminlist');?>",
+                    "type":"GET",
                     "dataType":"json"},
                     "columns": [
                     { "data": "count",responsivePriority: 1 },//define column widths
@@ -473,7 +473,7 @@ function submitData()
     {
 
 
-            var table=$('#adminlist').DataTable();
+           var table=$('#adminlist').DataTable();
 
             //assign input values to variables for posting
            var staffid= $("#adminreg input[name=staffid]").val();
@@ -488,7 +488,7 @@ function submitData()
             $.ajax(//ajax script to post the data without page refresh
                 {
                     type:"post",
-                    url: "<?php echo base_url('Home/adminregistration')?>",
+                    url: "<?php echo base_url('index.php/Home/adminregistration')?>",
                     data:{ staffid:staffid,username:username,role:role,firstname:firstname, lastname:lastname,emailadd:emailadd,phone:phone,gender:gender},
                     dataType:'json',
 
@@ -560,7 +560,7 @@ function update()
             $.ajax(//ajax script to post the data without page refresh
                 {
                     type:"post",
-                    url: "<?php echo base_url('Home/updateadmin')?>",
+                    url: "<?php echo base_url('index.php/Home/updateadmin')?>",
                     data:{ staffid:staffid,role:role,firstname:firstname, lastname:lastname,emailadd:emailadd,phone:phone,gender:gender},
                     dataType:'json',
 
@@ -616,7 +616,7 @@ function deleteadmin(objButton)
                 $.ajax(
                     {
                         type:"post",
-                        url: "<?php echo base_url('Home/deleteadmin');?>",
+                        url: "<?php echo base_url('index.php/Home/deleteadmin');?>",
                         data:{ userID:userID},
                         dataType:'json',
 
@@ -663,7 +663,7 @@ function editadmin(objButton)
              $.ajax(
                     {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/getadmin",
+                    url: "<?php echo base_url('index.php/Home/getadmin'); ?>",
                     data:{ id:id},
                     dataType:'json',
 
@@ -714,7 +714,7 @@ $( "#editadminreg #role").on('click', function(event)
             $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/admrolesdropdown",
+                    url: "<?php echo base_url('index.php/Home/admrolesdropdown'); ?>",
                     dataType:'json',
 
                     success:function(data)
@@ -761,7 +761,7 @@ $( "#regmodal").on('click', function(event)
             $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/admrolesdropdown",
+                    url: "<?php echo base_url('index.php/Home/admrolesdropdown'); ?>",
                     dataType:'json',
 
                     success:function(data)
@@ -828,7 +828,7 @@ function viewadmin(objButton)
          $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/getadmin",
+                    url: "<?php echo base_url('index.php/Home/getadmin'); ?>",
                     data:{ id:id},
                     dataType:'json',
 

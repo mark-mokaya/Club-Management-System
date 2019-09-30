@@ -279,12 +279,12 @@
                                             <p style="color:purple; padding-top:10px;"><strong>'; echo $info->clubName;
 
                                             echo '</strong></p>
-                                        </div>
+                                        </div><!--
                                         <div class="col-md-12">
                                             <p>'; echo $info->clubProfile;
 
                                             echo '</p>
-                                        </div>
+                                        </div>-->
                                     </div>
                                 </div>
 

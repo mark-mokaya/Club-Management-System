@@ -85,7 +85,7 @@ $(document).ready(function ()
                 $.ajax(
                     {
                         type:"post",
-                        url: "<?php echo base_url(); ?>Home/clubdropdownlist",
+                        url: "<?php echo base_url('index.php/Home/clubdropdownlist'); ?>",
                         dataType:'json',
 
                         success:function(data)
@@ -121,7 +121,7 @@ $('#clubid').on('change', function()
                     var table=$('#clubuploadslist').DataTable({"iDisplayLength": 10,"lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25, 50, 100, 200, "All"]],
 
                     "ajax": {
-                    "url":'<?php echo base_url()?>ClubController/perclubuploads'+"?clubID="+clubID,
+                    "url":'<?php echo base_url('index.php/ClubController/perclubuploads')?>'+"?clubID="+clubID,
                     "type":"POST",
                     "dataType":"json"},
                     "columns": [
@@ -175,7 +175,7 @@ $( "#print").on('click', function()
              $.ajax(
                     {
                          type:"post",
-                        url: "<?php echo base_url('ClubController/perclubmembers')?>",
+                        url: "<?php echo base_url('index.php/ClubController/perclubmembers')?>",
                         data:{ clubEmail:clubEmail},
                         dataType:'json',
 
@@ -198,7 +198,7 @@ function viewmember(objButton)
      $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>ClubController/viewclubmember",
+                    url: "<?php echo base_url('index.php/ClubController/viewclubmember'); ?>",
                     data:{ pid:pid},
                     dataType:'json',
 

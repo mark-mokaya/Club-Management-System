@@ -140,8 +140,8 @@ $(document).ready(function ()
                      var table=$('#clubslist').DataTable({responsive:true,"iDisplayLength": 10,"lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25, 50, 100, 200, "All"]],
 
                     "ajax": {
-                    "url":"<?php echo base_url('Home/clublist'); ?>",
-                    "type":"POST",
+                    "url":"<?php echo base_url('index.php/Home/clublist'); ?>",
+                    "type":"GET",
                     "dataType":"json"},
                     "columns": [
                     { "data": "count",responsivePriority: 1 },
@@ -196,7 +196,7 @@ function updateProfile()
             $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/updateclub",//URL changed 
+                    url: "<?php echo base_url('index.php/Home/updateclub'); ?>",//URL changed 
                     data:{ clubid:clubid, clubname:clubname,yearstarted:yearstarted,yearrebranded:yearrebranded, registrationfee:registrationfee,regbasis:regbasis},
                     dataType:'json',
 
@@ -241,7 +241,7 @@ function editclubprofile(objButton)
      $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/getclub",
+                    url: "<?php echo base_url('index.php/Home/getclub'); ?>",
                     data:{ id:id},
                     dataType:'json',
                     success:function(data)
@@ -269,7 +269,7 @@ function deleteclub(objButton)
             $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/deleteclub",
+                    url: "<?php echo base_url('index.php/Home/deleteclub'); ?>",
                     data:{ id:id},
                     dataType:'json',
 
@@ -326,7 +326,7 @@ function deactivateclub(objButton)
             $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/deactivateclub",
+                    url: "<?php echo base_url('index.php/Home/deactivateclub'); ?>",
                     data:{ id:id},
                     dataType:'json',
 

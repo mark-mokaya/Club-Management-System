@@ -1,4 +1,4 @@
-<?php
+  <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
@@ -949,13 +949,13 @@ public function clublist()
                         {
                              $data['data'][] = array('clubID' => $clubs['clubID'],'clubName'=>$clubs['clubName'],
                             'yearStarted'=>$clubs['yearStarted'], 'yearRebranded'=>$clubs['yearRebranded'],'registrationFee'=>$clubs['registrationFee'],
-                            'registrationBasis'=>$clubs['registrationBasis'],'action'=>$clubs['clubID'],'count'=>$count,'status'=>"Active",'clubProfile'=>$clubs['clubProfile']);
+                            'registrationBasis'=>$clubs['registrationBasis'],'action'=>$clubs['clubID'],'count'=>$count,'status'=>"Active");
 
                                 $count=$count +1;
                         }else {
                              $data['data'][] = array('clubID' => $clubs['clubID'],'clubName'=>$clubs['clubName'],
                             'yearStarted'=>$clubs['yearStarted'], 'yearRebranded'=>$clubs['yearRebranded'],'registrationFee'=>$clubs['registrationFee'],
-                            'registrationBasis'=>$clubs['registrationBasis'],'action'=>$clubs['clubID'],'count'=>$count,'status'=>"Inactive",'clubProfile'=>$clubs['clubProfile']);
+                            'registrationBasis'=>$clubs['registrationBasis'],'action'=>$clubs['clubID'],'count'=>$count,'status'=>"Inactive");
 
                                 $count=$count +1;
                         }
@@ -1035,7 +1035,7 @@ public function getclub()
 
                             $data= array('clubID' => $clubs['clubID'],'clubName'=>$clubs['clubName'],
                                 'yearStarted'=>$clubs['yearStarted'], 'yearRebranded'=>$clubs['yearRebranded'],'registrationFee'=>$clubs['registrationFee'],
-                                'registrationBasis'=>$clubs['registrationBasis'],'clubProfile'=>$clubs['clubProfile']);
+                                'registrationBasis'=>$clubs['registrationBasis']);
                         }
                     echo json_encode($data);
                 }
@@ -2213,7 +2213,7 @@ public function officialroles()
             }
             else
                 {
-                    $suID=$this->session->userdata('suID');/**/
+                    $suID=$this->session->userdata('suID');
                     $list = $this->mainmodel->officialroles($suID);
 
                          $data=array();

@@ -43,14 +43,14 @@ public  function ldapAuthenticate($ldapserver, $ldapport, $username, $password){
         }
 
 
-public function validate_ldap_official($username)
+public function validate_ldap_official($username,$password)
         {
 
                         $this->db->select('cm.firstName,cm.lastName,r.roleName,co.studentID');
                         $this->db->from('clubs c, clubofficials co,clubmembers cm,clubroles r');
                         $this->db->where('co.studentID=cm.suID');
                         $this->db->where('co.studentID', $username);
-                        //$this->db->where('co.password', $password);
+                        $this->db->where('co.password', $password);
                         $this->db->limit(1);
                         $query = $this->db->get();
 

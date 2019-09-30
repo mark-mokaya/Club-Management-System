@@ -1,14 +1,3 @@
-<!--
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
- hello
-</body>
-</html>
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,15 +54,14 @@
             </span>
 
             <span data-placement="top" data-toggle="tooltip" title="Print All">
-                    <a class="btn btn-xs" data-title="Print All" type="button" href="<?php echo base_url('Home/clubspdf');?>"><span class="fa fa-print"></span>&nbsp;Print All</a>
+                    <a class="btn btn-xs" data-title="Print All" type="button" href="<?php echo base_url('index.php/Home/clubspdf');?>"><span class="fa fa-print"></span>&nbsp;Print All</a>
             </span>
             <br><br>
             <div class="row">
                 <div class="col-md-12">
                     <table  class="table table-striped table-bordered table-hover display responsive nowrap" cellspacing="0" width="100%" id="clubslist"  >
                         <thead>
-                            <tr>
-                                        
+                            <tr>      
                                 <th class="text-center">#</th>
                                 <th class="text-center">Club Name</th>
                                 <th class="text-center">Club Email</th>
@@ -98,7 +86,6 @@
                         </div>
 
                         <div class="modal-body">
-                            <?php echo form_open('index.php/Home/registerclub'); ?>
                             <form role="form" method="POST" action="" id="clubreg">
 
                                 <div class="messagebox alert alert-success" id="success" style="display: none;position:relative;width:82%;top: 0%;left: 10%;">
@@ -167,7 +154,6 @@
 
 
                             </form>
-                            <?php echo form_close(); ?>
                         </div>
                         <!--modal-body-->
                     </div>
@@ -370,11 +356,11 @@ $(document).ready(function ()
             $("#clubslist").dataTable().fnDestroy();//destroy the table and recreate it for every refresh
 
 
-                     var table=$('#clubslist').DataTable({responsive:true,"iDisplayLength": 10,"lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25, 50, 100, 200, "All"]],
+                     var table = $('#clubslist').DataTable({responsive:true,"iDisplayLength": 10,"lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25, 50, 100, 200, "All"]],
 
                     "ajax": {
-                    "url":"<?php echo base_url('Home/clublist'); ?>",
-                    "type":"POST",
+                    "url":"<?php echo base_url('index.php/Home/clublist'); ?>",
+                    "type":"GET",
                     "dataType":"json"},
                     "columns": [
                     { "data": "count",responsivePriority: 1 },
@@ -436,7 +422,7 @@ function submitData()
             $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/registerclub",//URL changed 
+                    url: "<?php echo base_url('index.php/Home/registerclub'); ?>",//URL changed 
                     data:{ clubid:clubid, clubname:clubname,yearstarted:yearstarted,yearrebranded:yearrebranded, registrationfee:registrationfee,regbasis:regbasis},
                     dataType:'json',
 
@@ -542,7 +528,7 @@ function editclub(objButton)
      $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/getclub",
+                    url: "<?php echo base_url('index.php/Home/getclub'); ?>",
                     data:{ id:id},
                     dataType:'json',
 
@@ -575,7 +561,7 @@ function deleteclub(objButton)
             $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/deleteclub",
+                    url: "<?php echo base_url('index.php/Home/deleteclub'); ?>",
                     data:{ id:id},
                     dataType:'json',
 
@@ -632,7 +618,7 @@ function deactivateclub(objButton)
             $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/deactivateclub",
+                    url: "<?php echo base_url('index.php/Home/deactivateclub'); ?>",
                     data:{ id:id},
                     dataType:'json',
 

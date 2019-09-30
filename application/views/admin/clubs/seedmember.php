@@ -224,7 +224,7 @@ function submitData()
             $.ajax(//ajax script to post the data without page refresh
                 {
                     type:"post",
-                    url: "<?php echo base_url('Home/addseedmember');?>",
+                    url: "<?php echo base_url('index.php/Home/addseedmember');?>",
                     data:{ suid:suid,lastname:lastname,firstname:firstname,gender:gender,phone:phone,suemail:suemail,course:course,clubid:clubid},
                     dataType:'json',
                     success:function(data)
@@ -276,7 +276,7 @@ $(document).ready(function()
         $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url('ClubController/coursedropdownlist')?>",
+                    url: "<?php echo base_url('index.php/ClubController/coursedropdownlist')?>",
                     dataType:'json',
                     success:function(data)
                     {
@@ -317,7 +317,7 @@ $(document).ready(function()
             $.ajax(//ajax for clubs dropdown
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/clubdropdownlist",
+                    url: "<?php echo base_url('index.php/Home/clubdropdownlist'); ?>",
                     dataType:'json',
 
                     success:function(data)
