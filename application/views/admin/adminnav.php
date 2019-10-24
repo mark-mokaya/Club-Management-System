@@ -132,7 +132,7 @@
                                         <a href="<?php echo base_url("index.php/Home/club_constitutions"); ?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Club Constitutions</a>
                                     </li>
                                     <li>
-                                        <a href="<?php echo base_url("index.php/Home/club_histories"); ?>><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Clubs History</a>
+                                        <a href="<?php echo base_url("index.php/Home/club_histories"); ?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Clubs History</a>
                                     </li>
                             </ul>
                             <!--second-level-->

@@ -37,6 +37,12 @@ public function clubProfile()
     return $this->db->get()->result();
 }
 
+public function showevents()
+{
+    $this->db->select('*');
+    $this->db->from('eventinfo');
+    return $this->db->get()->result();
+}
 //===============================club deletion===============================
 
 public function deleteclub($clubid=NULL)

@@ -183,8 +183,8 @@
                     // var table=$('#eventattendancelist').DataTable({"aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
 
                     "ajax": {
-                    "url":"<?php echo base_url('ClubController/legible')?>",
-                    "type":"POST",
+                    "url":"<?php echo base_url('index.php/ClubController/legible')?>",
+                    "type":"GET",
                     "dataType":"json"},
                     "columns": [
                     { "data": "count" ,responsivePriority: 1},//define column widths
@@ -244,7 +244,7 @@ function nominate(objButton)
             $.ajax(//ajax script to post the data without page refresh
                 {
                     type:"post",
-                    url: "<?php echo base_url('ClubController/officialnomination');?>",
+                    url: "<?php echo base_url('index.php/ClubController/officialnomination');?>",
                     data:{studentPID:studentPID },
                     dataType:'json',
 

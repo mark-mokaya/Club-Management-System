@@ -87,8 +87,8 @@
                   var table=$('#meetingslist').DataTable({responsive:true,"iDisplayLength": 10,"lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25, 50, 100, 200, "All"]],
 
                     "ajax": {
-                    "url":'<?php echo base_url('ClubController/meetingsperclub')?>'+"?clubID="+clubID,
-                    "type":"POST",
+                    "url":'<?php echo base_url('index.php/ClubController/meetingsperclub')?>'+"?clubID="+clubID,
+                    "type":"GET",
                     "dataType":"json"},
                     "columns": [
                     { "data": "count",responsivePriority: 1 },//define column widths
@@ -140,7 +140,7 @@
                 $.ajax(
                     {
                         type:"post",
-                        url: "<?php echo base_url(); ?>Home/clubdropdownlist",
+                        url: "<?php echo base_url('index.php/Home/clubdropdownlist'); ?>",
                         dataType:'json',
 
                         success:function(data)
@@ -184,8 +184,8 @@ $('#clubid').on('change', function()
                   var table=$('#meetingslist').DataTable({responsive:true,"iDisplayLength": 10,"lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25, 50, 100, 200, "All"]],
 
                     "ajax": {
-                    "url":'<?php echo base_url('ClubController/meetingsperclub')?>'+"?clubID="+clubID,
-                    "type":"POST",
+                    "url":'<?php echo base_url('index.php/ClubController/meetingsperclub')?>'+"?clubID="+clubID,
+                    "type":"GET",
                     "dataType":"json"},
                     "columns": [
                     { "data": "count",responsivePriority: 1 },//define column widths
@@ -244,7 +244,7 @@ function viewattendance(objButton)
       var meetingID=objButton.value;
         var clubName=$('#clubid option:selected').text();
       
-      window.location.href = '<?php echo site_url('ClubController/viewmeetingattperclubid');?>?meetingID='+meetingID+'&clubName='+clubName;
+      window.location.href = '<?php echo site_url('index.php/ClubController/viewmeetingattperclubid');?>?meetingID='+meetingID+'&clubName='+clubName;
     }
 
 //to refresh the page

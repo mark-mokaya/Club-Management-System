@@ -603,7 +603,7 @@ class CI_Upload {
 				'full_path'		=> $this->upload_path.$this->file_name,
 				'raw_name'		=> substr($this->file_name, 0, -strlen($this->file_ext)),
 				'orig_name'		=> $this->orig_name,
-				'client_name'		=> $this->client_name,
+				'client_name'	=> $this->client_name,
 				'file_ext'		=> $this->file_ext,
 				'file_size'		=> $this->file_size,
 				'is_image'		=> $this->is_image(),

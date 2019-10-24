@@ -135,8 +135,8 @@
          
      $.ajax(
                 {
-                    type:"post",
-                    url: "<?php echo base_url(); ?>ClubController/withattendancemeetingsdropdown",
+                    type:"get",
+                    url: "<?php echo base_url('index.php/ClubController/withattendancemeetingsdropdown'); ?>",
                     dataType:'json',
 
                     success:function(data)
@@ -195,7 +195,7 @@ $('#meeting').on('change', function()
                     // var table=$('#eventattendancelist').DataTable({"aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
 
                     "ajax": {
-                    "url":"<?php echo base_url('ClubController/meetingattlist')?>"+"?meetingID="+meetingID,
+                    "url":"<?php echo base_url('index.php/ClubController/meetingattlist')?>"+"?meetingID="+meetingID,
                     "type":"POST",
                     "dataType":"json"},
                     "columns": [

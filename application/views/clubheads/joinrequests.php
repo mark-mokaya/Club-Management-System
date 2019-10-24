@@ -251,8 +251,8 @@
                     var table=$('#joinrequestslist').DataTable({responsive:true,"iDisplayLength": 10,"lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25, 50, 100, 200, "All"]],
 
                     "ajax": {
-                    "url":"<?php echo base_url('ClubController/joinrequestslist')?>",
-                    "type":"POST",
+                    "url":"<?php echo base_url('index.php/ClubController/joinrequestslist')?>",
+                    "type":"GET",
                     "dataType":"json"},
                     "columns": [
                     { "data": "count",responsivePriority: 1 },//define column widths
@@ -306,7 +306,7 @@ function viewmember(objButton)
      $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>ClubController/viewclubmember",
+                    url: "<?php echo base_url('index.php/ClubController/viewclubmember'); ?>",
                     data:{ pid:pid},
                     dataType:'json',
 
@@ -343,7 +343,7 @@ function approverequest(objButton)
             $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url('ClubController/approverequest');?>",
+                    url: "<?php echo base_url('index.php/ClubController/approverequest');?>",
                     data:{ pid:pid},
                     dataType:'json',
 

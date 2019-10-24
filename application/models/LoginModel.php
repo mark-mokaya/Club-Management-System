@@ -67,13 +67,13 @@ public function validate_ldap_official($username,$password)
 
         }
 
-public function validate_ldap_stdcouncil($username)
+public function validate_ldap_stdcouncil($username,$password)
         {
 
                        $this->db->select('*');
                         $this->db->from('admin');
                         $this->db->where('staffID', $username);
-                        //$this->db->where('password', $password);
+                        $this->db->where('password', $password);
                         $this->db->where('status', 1);
                         $this->db->limit(1);
                         $query = $this->db->get();

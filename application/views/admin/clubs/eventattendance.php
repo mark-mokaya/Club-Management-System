@@ -91,8 +91,8 @@
                 // var table=$('#eventattendancelist').DataTable({"aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
 
                     "ajax": {
-                    "url":"<?php echo base_url('ClubController/vieweventattendancelist')?>",
-                    "type":"POST",
+                    "url":"<?php echo base_url('index.php/ClubController/vieweventattendancelist')?>",
+                    "type":"GET",
                     "dataType":"json"},
                     "columns": [
                         { "data": "count" ,responsivePriority: 1},//define column widths

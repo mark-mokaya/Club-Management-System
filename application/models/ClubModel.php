@@ -744,13 +744,11 @@ public function eventslist($clubID)
         }
 public function event($eventid=NULL)
 {
-
         $this->db->select('*');
         $this->db->from('eventinfo');
         $this->db->where('autoID',$eventid);
         $result=$this->db->get();
         return $result;
-
 }
 
 

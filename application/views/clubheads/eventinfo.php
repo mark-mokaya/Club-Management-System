@@ -60,9 +60,28 @@
              <span data-placement="top" data-toggle="tooltip" title="Print All">
                     <a class="btn btn-xs" data-title="Print All" type="button" href="<?php echo base_url('addclubminutesminutestroller/clubmemberspdf')?>"><span class="fa fa-print"></span>&nbsp;Print All</a>
             </span>
-           
-            <br><br>
            <div class="row">
+                <!--<div class="form-group col-lg-12">
+                    <?php $msg = $this->session->flashdata('msg');
+                        $successful= $msg['success']; $failed=  $msg['error']; 
+                        if ($successful=="" && $failed!=""){echo '
+                        <div class="messagebox alert alert-danger" style="display: block">
+                        <button type="button" class="close" data-dismiss="alert">*</button>
+                        <div class="cs-text">
+                            <i class="fa fa-close"></i>
+                            <strong><span>';echo $msg['error']; echo '</span></strong>
+                        </div> 
+                        </div>';}
+                        else if($successful=="" && $failed==""){echo '<div></div>';} 
+                        else if ($successful!="" && $failed==""){echo '
+                        <div class="messagebox alert alert-success" style="display: block">
+                        <button type="button" class="close" data-dismiss="alert">*</button>
+                        <div class="cs-text">
+                            <i class="fa fa-check-circle-o"></i>
+                            <strong><span>';echo $msg['success'];echo '</span></strong>
+                        </div> 
+                        </div>';}?>
+                    </div>-->
                 <div class="col-md-12">
                   <table  class="table table-striped table-bordered table-hover display responsive nowrap" cellspacing="0" width="100%"  id="eventslist">
                         <thead>
@@ -136,7 +155,6 @@
                                             <label>Brief Event Description</label>
                                             <textarea class="form-control" placeholder="Event Description (100 characters)" name="description" id="description" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Please enter at least 20 characters " data-parsley-validation-threshold="10" required autocomplete="off" ></textarea>
                                         </div>
-
 
                                         <button type="submit" class="btn btn-success" id="submit" >Submit </button>
                                         <button type="reset" class="btn btn-default " id="reset">Reset </button>
@@ -329,11 +347,41 @@
             <!-- /.modal-dialog --> 
         </div>
 
-           
-
-
-
-
+           <div class="modal fade" id="eventimage" tabindex="-1" role="dialog" aria-labelledby="Event Image" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                            <button type="button"  class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title custom_align" id="Heading">Add Event Image </h4>
+                    </div>
+                    <div class="modal-body" style="height: 150px;">
+                        <?php echo form_open_multipart('index.php/ClubController/upload_eventimage');?>
+                        <form role="form" method="POST" action="" id="eventimage">
+                        <div class="form-group col-lg-12" style="display:none;position: absolute;">
+                            <label>ID</label>
+                            <input class="form-control" placeholder="PID" id="pid" name="pid">
+                        </div>
+                        <div class="form-group col-lg-12">
+                        <label>Event Image</label> <span class="star">*</span>
+                        <input class="form-control" name="eventimage" id="eventimage" type="file" parsley-trigger="change" required autocomplete="off" size="20">
+                        </div>
+                        <div class="form-group col-lg-12">
+                        <button type="submit" class="btn btn-success" id="submit">Submit </button>
+                        <button type="button" class="btn " data-dismiss="modal" aria-hidden="true">EXIT</button>
+                    </div>
+                    </form>
+                    </div>
+                    </div>
+                </div>
+                    <div class="messagebox alert alert-success"  id="success">
+                                            <button type="button" class="close" data-dismiss="alert"></button>
+                                            <div class="cs-text">
+                                                <i class="fa fa-check-circle-o"></i>
+                                                <strong><span> Success!</span></strong>
+                                                <p>Event Image Uploaded successfully!<br /></p>
+                                            </div>
+                                        </div>
+            </div>
 
         </div>
         <!-- /#page-wrapper -->
@@ -357,8 +405,8 @@
                     var table=$('#eventslist').DataTable({responsive:true,"iDisplayLength": 10,"lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25, 50, 100, 200, "All"]],
 
                     "ajax": {
-                    "url":"<?php echo base_url('ClubController/eventslist')?>",
-                    "type":"POST",
+                    "url":"<?php echo base_url('index.php/ClubController/eventslist')?>",
+                    "type":"GET",
                     "dataType":"json"},
                     "columns": [
                     { "data": "count",responsivePriority: 1 },//define column widths
@@ -378,7 +426,7 @@
 
                       "mRender": function ( data, type, full ) 
                       {
-                        return '<span data-placement="top" data-toggle="tooltip" title="Delete Event"><button class="btn btn-danger btn-xs" data-title="Delete Event"  onclick="deleteevent(this);" id="'+data+'_delete" value="'+data+'"><span class="glyphicon glyphicon-trash" ></span></button></span> &nbsp;                                                                                                                                                       <span data-placement="top" data-toggle="tooltip" title="Edit Event"><button class="btn btn-primary btn-xs" data-title="Edit Event" onclick="editevent(this);" value="'+data+'"><span class="fa fa-edit"></span></button></span>&nbsp';
+                        return '<span data-placement="top" data-toggle="tooltip" title="Delete Event"><button class="btn btn-danger btn-xs" data-title="Delete Event"  onclick="deleteevent(this);" id="'+data+'_delete" value="'+data+'"><span class="glyphicon glyphicon-trash" ></span></button></span> &nbsp;                                                                                                                                                       <span data-placement="top" data-toggle="tooltip" title="Edit Event"><button class="btn btn-primary btn-xs" data-title="Edit Event" onclick="editevent(this);" value="'+data+'"><span class="fa fa-edit"></span></button></span>&nbsp                                                                                                        <span data-placement="top" data-toggle="tooltip" title="Add Image"><button class="btn btn-primary btn-xs" data-title="Add Image" onclick="eventimage(this);" value="'+data+'"><span class="fa fa-image"></span></button></span>&nbsp';
                       }
 
                         
@@ -420,7 +468,7 @@ function submitData()
             $.ajax(//ajax script to post the data without page refresh
                 {
                     type:"post",
-                    url: "<?php echo base_url('ClubController/eventinfosave')?>",
+                    url: "<?php echo base_url('index.php/ClubController/eventinfosave')?>",
                     data:{ eventdate:eventdate,eventvenue:eventvenue,starttime:starttime,endtime:endtime,description:description},
                     dataType:'json',
                     success:function(data)
@@ -461,6 +509,35 @@ function submitData()
                 });
               
 };
+function eventimage(objButton)
+{
+    var pid=objButton.value;
+    $("#eventimage").parsley().reset();
+     $.ajax(
+                {
+                    type:"post",
+                    url: "<?php echo base_url('index.php/ClubController/geteventinfo'); ?>",
+                    data:{ pid:pid},
+                    dataType:'json',
+
+                    success:function(data)
+                    {
+                        $("#eventimage #pid").val(data.pID);
+                        $('#eventimage').modal('toggle');
+                        console.log(data);
+                        
+                    }
+                });
+}
+$("#eventimage #submit").click(function()
+                        {
+                            $('#eventimage #success').show();
+                            $("#eventimage #success").fadeTo(2000, 500).slideUp(500, function(){
+                                $("#eventimage #success").slideUp(500);
+                                });
+
+                            table.ajax.reload( null, false );
+                        });
 
 function editevent(objButton)
 {
@@ -469,7 +546,7 @@ function editevent(objButton)
      $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>ClubController/geteventinfo",
+                    url: "<?php echo base_url('index.php/ClubController/geteventinfo'); ?>",
                     data:{ pid:pid},
                     dataType:'json',
 
@@ -508,7 +585,7 @@ function update()
             $.ajax(//ajax script to post the data without page refresh
                 {
                     type:"post",
-                    url: "<?php echo base_url('ClubController/eventinfoupdate');?>",
+                    url: "<?php echo base_url('index.php/ClubController/eventinfoupdate');?>",
                     data:{ pid:pid,eventdate:eventdate,eventvenue:eventvenue,starttime:starttime,endtime:endtime,description:description},
                     dataType:'json',
 
@@ -572,7 +649,7 @@ function deleteevent(objButton)
             $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>ClubController/deleteevent",
+                    url: "<?php echo base_url('index.php/ClubController/deleteevent'); ?>",
                     data:{ id:id},
                     dataType:'json',
 

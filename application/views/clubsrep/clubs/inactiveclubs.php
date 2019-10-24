@@ -36,7 +36,7 @@
             </span>
 
             <span data-placement="top" data-toggle="tooltip" title="Print All">
-                    <a class="btn btn-xs" data-title="Print All" type="button" href="<?php echo base_url('Home/inactiveclubspdf');?>"><span class="fa fa-print"></span>&nbsp;Print All</a>
+                    <a class="btn btn-xs" data-title="Print All" type="button" href="<?php echo base_url('index.php/Home/inactiveclubspdf');?>"><span class="fa fa-print"></span>&nbsp;Print All</a>
             </span>
             <br><br>
             <div class="row">
@@ -77,8 +77,8 @@
                      var table=$('#inactiveclubs').DataTable({responsive:true,"iDisplayLength": 10,"lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25, 50, 100, 200, "All"]],
 
                     "ajax": {
-                    "url":"<?php echo base_url('Home/inactiveclubslist'); ?>",
-                    "type":"POST",
+                    "url":"<?php echo base_url('index.php/Home/inactiveclubslist'); ?>",
+                    "type":"GET",
                     "dataType":"json"},
                     "columns": [
                     { "data": "count",responsivePriority: 1 },

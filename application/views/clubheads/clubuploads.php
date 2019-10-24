@@ -57,7 +57,7 @@
                         </div>
                 </div>';}?>
 
-              <?php echo form_open_multipart('ClubController/upload_report');?>
+              <?php echo form_open_multipart('index.php/ClubController/upload_report');?>
 
                 <div class="form-group col-lg-6">
                     <label>File Upload</label> <span class="star">*</span>
@@ -105,7 +105,7 @@
 
                             <td class="text-center">
                                 <span data-placement="top" data-toggle="tooltip" title="Download Upload">
-                                        <a href="<?php echo base_url();?>ClubController/download_upload/<?php echo $file->file_name;?>"style="text-decoration: none"><span><i class="fa fa-download fa-lg"></i></span>
+                                        <a href="<?php echo base_url('index.php/ClubController/download_upload/');?><?php echo $file->file_name;?>"style="text-decoration: none"><span><i class="fa fa-download fa-lg"></i></span>
                                         </a>
                                 </span>
                             </span>

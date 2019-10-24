@@ -203,8 +203,8 @@
                     var table=$('#eventinattendancelist').DataTable({paging:false,responsive:true,"iDisplayLength": 10,"lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25, 50, 100, 200, "All"]],
                     // var table=$('#eventattendancelist').DataTable({"aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
                   "ajax": {
-                    "url":"<?php echo base_url('ClubController/nonclubmemberslist')?>",
-                    "type":"POST",
+                    "url":"<?php echo base_url('index.php/ClubController/nonclubmemberslist')?>",
+                    "type":"GET",
                     "dataType":"json"},
                     "columns": [
                     { "data": "count" ,responsivePriority: 1},//define column widths
@@ -285,7 +285,7 @@ $(function(){
              $.ajax(//ajax script to post the data without page refresh
                 {
                     type:"post",
-                    url: "<?php echo base_url('ClubController/eventinattendancerecord')?>",
+                    url: "<?php echo base_url('index.php/ClubController/eventinattendancerecord')?>",
                     
                     data: {eventid:eventid,selected:selected},
                     dataType:'json',
@@ -325,8 +325,8 @@ $(function(){
          
      $.ajax(
                 {
-                    type:"post",
-                    url: "<?php echo base_url(); ?>ClubController/eventsinattendancedropdown",
+                    type:"get",
+                    url: "<?php echo base_url('index.php/ClubController/eventsinattendancedropdown'); ?>",
                     dataType:'json',
 
                     success:function(data)

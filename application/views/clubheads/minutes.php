@@ -70,7 +70,7 @@
                             
                     
 
-              <?php $attributes = array('id' => 'uploadminutes'); echo form_open_multipart('ClubController/upload_minutes', $attributes);?>
+              <?php $attributes = array('id' => 'uploadminutes'); echo form_open_multipart('index.php/ClubController/upload_minutes', $attributes);?>
               
                 <div class="form-group col-lg-12">
                     <label>Select Meeting</label> <span class="star">*</span>
@@ -131,11 +131,11 @@
                             <td class="text-center">
 
                                 <span data-placement="top" data-toggle="tooltip" title="Download Minutes">
-                                    <a href="<?php echo base_url();?>ClubController/download_minutes/<?php echo $file->file_name;?>"style="text-decoration: none"><span><i class="fa fa-download fa-lg"></i></span></a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                                    <a href="<?php echo base_url('index.php/ClubController/download_minutes/');?><?php echo $file->file_name;?>"style="text-decoration: none"><span><i class="fa fa-download fa-lg"></i></span></a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                                 </span>
 
                                 <span data-placement="top" data-toggle="tooltip" title="Delete Minutes">
-                                    <a  href="<?php echo base_url();?>ClubController/delete_club_minutes<?php echo "?meetingID="; echo  $file->meetingID;?>"  style="text-decoration: none"><span><i class="fa fa-trash fa-lg" style="color:red"></i></span></a>
+                                    <a  href="<?php echo base_url('index.php/ClubController/delete_club_minutes');?><?php echo "?meetingID="; echo  $file->meetingID;?>"  style="text-decoration: none"><span><i class="fa fa-trash fa-lg" style="color:red"></i></span></a>
                                 </span>
                             </td>
                         </tr>
@@ -165,7 +165,7 @@
                $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url();?>ClubController/meetingswithoutminutesdropdown",
+                    url: "<?php echo base_url('index.php/ClubController/meetingswithoutminutesdropdown');?>",
                     dataType:'json',
 
                     success:function(data)

@@ -38,7 +38,7 @@ public function index()
         //echo $user->userlogin; die();
 
         // end test @lkasera
-        $data = array('profile'=>$this->mainmodel->clubProfile());
+        $data = array('profile'=>$this->mainmodel->clubProfile(),'events'=>$this->mainmodel->showevents());
         $this->load->view('login',$data);
     }
  public function adminreg()

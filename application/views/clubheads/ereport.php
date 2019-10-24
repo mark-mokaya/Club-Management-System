@@ -69,7 +69,7 @@
                             
                     
 
-              <?php $attributes = array('id' => 'uploadeventreport'); echo form_open_multipart('ClubController/upload_event_report', $attributes);?>
+              <?php $attributes = array('id' => 'uploadeventreport'); echo form_open_multipart('index.php/ClubController/upload_event_report', $attributes);?>
               
                 <div class="form-group col-lg-12">
                     <label>Select Event</label> <span class="star">*</span>
@@ -133,7 +133,7 @@
                                 </span>
 
                                 <span data-placement="top" data-toggle="tooltip" title="Delete Minutes">
-                                    <a  href="<?php echo base_url();?>ClubController/delete_event_report<?php echo "?eventID="; echo  $file->eventID;?>"  style="text-decoration: none"><span><i class="fa fa-trash fa-lg" style="color:red"></i></span></a>
+                                    <a  href="<?php echo base_url('index.php/ClubController/delete_event_report');?><?php echo "?eventID="; echo  $file->eventID;?>"  style="text-decoration: none"><span><i class="fa fa-trash fa-lg" style="color:red"></i></span></a>
                                 </span>
                             </td>
                         </tr>
@@ -165,7 +165,7 @@
                $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url();?>ClubController/eventswithoutreport",
+                    url: "<?php echo base_url('index.php/ClubController/eventswithoutreport');?>",
                     dataType:'json',
 
                     success:function(data)

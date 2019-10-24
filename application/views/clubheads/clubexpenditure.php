@@ -46,7 +46,7 @@
         
                 <div class="row" >
                     <div class="col-lg-12">
-                        <h4 class="page-header" style="margin-top:10px;color:blue"><span><?php  echo $this->session->userdata('clubName'); echo " Expenditures";?></span></h4>
+                        <h4 class="page-header" style="margin-top:10px;color:blue"><span><?php  echo $this->session->userdata('clubName'); echo " Expenditures not working";?></span></h4>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -299,8 +299,8 @@
                 var table=$('#expenditureslist').DataTable({responsive:true,"iDisplayLength": 10,"lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25, 50, 100, 200, "All"]],
 
                         "ajax": {
-                        "url":"<?php echo base_url('ClubController/expenditureslist');?>",
-                        "type":"POST",
+                        "url":"<?php echo base_url('index.php/ClubController/expenditureslist');?>",
+                        "type":"GET",
                         "dataType":"json"},
                         "columns": [
                         { "data": "count",responsivePriority: 1 },//define column widths
@@ -358,7 +358,7 @@
          $.ajax(
                     {
                         type:"post",
-                        url: "<?php echo base_url(); ?>Home/clubofficialsdropdownlist",
+                        url: "<?php echo base_url('index.php/Home/clubofficialsdropdownlist'); ?>",
                         dataType:'json',
 
                         success:function(data)
@@ -421,7 +421,7 @@
                 $.ajax(//ajax script to post the data without page refresh
                     {
                         type:"post",
-                        url: "<?php echo base_url('ClubController/addclubexpenditure');?>",
+                        url: "<?php echo base_url('index.php/ClubController/addclubexpenditure');?>",
                         data:{datespent:datespent,unitname:unitname,amounteach:amounteach,unitscount:unitscount,description:description,studentpid:studentpid},
                         dataType:'json',
 
@@ -477,7 +477,7 @@
          $.ajax(
                     {
                         type:"post",
-                        url: "<?php echo base_url(); ?>ClubController/getexpenditure",
+                        url: "<?php echo base_url('index.php/ClubController/getexpenditure'); ?>",
                         data:{ pid:pid},
                         dataType:'json',
 
@@ -519,7 +519,7 @@
                 $.ajax(
                     {
                         type:"post",
-                        url: "<?php echo base_url(); ?>Home/clubofficialsdropdownlist",
+                        url: "<?php echo base_url('index.php/Home/clubofficialsdropdownlist'); ?>",
                         dataType:'json',
 
                         success:function(data)
@@ -568,7 +568,7 @@ function update()
             $.ajax(//ajax script to post the data without page refresh
                 {
                     type:"post",
-                    url: "<?php echo base_url('ClubController/clubexpenditureupdate');?>",
+                    url: "<?php echo base_url('index.php/ClubController/clubexpenditureupdate');?>",
                     data:{pid:pid,datespent:datespent,unitname:unitname,amounteach:amounteach,unitscount:unitscount,description:description,studentpid:studentpid},
                     dataType:'json',
 
@@ -623,7 +623,7 @@ function update()
                 $.ajax(
                     {
                         type:"post",
-                        url: "<?php echo base_url(); ?>ClubController/deleteexpenditure",
+                        url: "<?php echo base_url('index.php/ClubController/deleteexpenditure'); ?>",
                         data:{ id:id},
                         dataType:'json',
 

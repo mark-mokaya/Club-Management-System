@@ -486,8 +486,8 @@
                     var table=$('#clubmemberslist').DataTable({responsive:true,"iDisplayLength": 10,"lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25, 50, 100, 200, "All"]],
 
                     "ajax": {
-                    "url":"<?php echo base_url('ClubController/clubmemberslist');?>",
-                    "type":"POST",
+                    "url":"<?php echo base_url('index.php/ClubController/clubmemberslist');?>",
+                    "type":"GET",
                     "dataType":"json"},
                     "columns": [
                     { "data": "count",responsivePriority: 1 },//define column widths
@@ -556,7 +556,7 @@ function submitData()
             $.ajax(//ajax script to post the data without page refresh
                 {
                     type:"post",
-                    url: "<?php echo base_url('ClubController/clubmemberregistration');?>",
+                    url: "<?php echo base_url('index.php/ClubController/clubmemberregistration');?>",
                     data:{ suid:suid,lastname:lastname,firstname:firstname,gender:gender,phone:phone,suemail:suemail,course:course,payment:payment},
                     dataType:'json',
 
@@ -630,7 +630,7 @@ function update()
             $.ajax(//ajax script to post the data without page refresh
                 {
                     type:"post",
-                    url: "<?php echo base_url('ClubController/clubmemberupdate');?>",
+                    url: "<?php echo base_url('index.php/ClubController/clubmemberupdate');?>",
                     data:{ pid:pid,suid:suid,lastname:lastname,firstname:firstname,gender:gender,phone:phone,suemail:suemail,course:course,payment:payment},
                     dataType:'json',
 
@@ -695,7 +695,7 @@ function editclubmember(objButton)
      $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url('ClubController/getclubmember');?>",
+                    url: "<?php echo base_url('index.php/ClubController/getclubmember');?>",
                     data:{ pid:pid},
                     dataType:'json',
 
@@ -813,7 +813,7 @@ $( "#regmodal").click( function(event)
             $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url('ClubController/coursedropdownlist');?>",
+                    url: "<?php echo base_url('index.php/ClubController/coursedropdownlist');?>",
                     dataType:'json',
 
                     success:function(data)
@@ -877,7 +877,7 @@ function deleteclubmember(objButton)
             $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url('ClubController/deleteclubmember');?>",
+                    url: "<?php echo base_url('index.php/ClubController/deleteclubmember');?>",
                     data:{ pid:pid},
                     dataType:'json',
 
@@ -914,7 +914,7 @@ function viewmember(objButton)
          $.ajax(
                     {
                         type:"post",
-                        url: "<?php echo base_url(); ?>ClubController/viewclubmember",
+                        url: "<?php echo base_url('index.php/ClubController/viewclubmember'); ?>",
                         data:{ pid:pid},
                         dataType:'json',
 

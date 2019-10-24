@@ -20,7 +20,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li class="divider"></li>
-                        <li><a href="<?php echo base_url('LoginCtrl/logoutadmin'); ?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="<?php echo base_url('index.php/LoginCtrl/logoutadmin'); ?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -34,7 +34,7 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="<?php echo base_url('Home/crep');?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="<?php echo base_url('index.php/Home/crep');?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <!--manage users-->
                         <li>
@@ -45,7 +45,7 @@
 
                                          <ul class="nav nav-third-level">
                                             <li>
-                                                <a href="<?php echo base_url('Home/crepclubofficialreg');?>"><i class="fa fa-plus-circle fa-fw"></i>&nbsp;Add/View Club Official</a>
+                                                <a href="<?php echo base_url('index.php/Home/crepclubofficialreg');?>"><i class="fa fa-plus-circle fa-fw"></i>&nbsp;Add/View Club Official</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -62,10 +62,10 @@
                             <!-- /.nav-second-level -->
                             <ul class="nav nav-second-level">
                                 <li>
-                                     <a  href="<?php echo base_url('Home/crep'); ?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>View Club</a>
+                                     <a  href="<?php echo base_url('index.php/Home/crep'); ?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>View Club</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url('Home/viewinactiveclubs');?>"><i class="fa fa-remove fa-fw" ></i>View Inactive Clubs</a>
+                                    <a href="<?php echo base_url('index.php/Home/viewinactiveclubs');?>"><i class="fa fa-remove fa-fw" ></i>View Inactive Clubs</a>
                                 </li>
                             </ul>
 
@@ -73,10 +73,10 @@
                             <a href="#"><i class="fa fa-bars fa-fw"></i> Club Members Views<span class="fa arrow"></span></a>
                              <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="<?php echo base_url('Home/crepclubmemberviews');?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Members Per Club</a>
+                                        <a href="<?php echo base_url('index.php/Home/crepclubmemberviews');?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Members Per Club</a>
                                     </li>
                                     <li>
-                                        <a href="<?php echo base_url('Home/crepclubofficialviews');?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Officials Per Club</a>
+                                        <a href="<?php echo base_url('index.php/Home/crepclubofficialviews');?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Officials Per Club</a>
                                     </li>
 
 
@@ -88,11 +88,11 @@
                             <a href="#"><i class="fa fa-group fa-fw"></i> Club Meetings Views<span class="fa arrow"></span></a>
                              <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="<?php echo base_url('ClubController/crepmeetingsviews');?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Club Meetings & Attendance</a>
+                                        <a href="<?php echo base_url('index.php/ClubController/crepmeetingsviews');?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Club Meetings & Attendance</a>
                                     </li>
 
                                     <li>
-                                        <a href="<?php echo base_url('ClubController/crep_clubminutesviews');?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Club Minutes</a>
+                                        <a href="<?php echo base_url('index.php/ClubController/crep_clubminutesviews');?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Club Minutes</a>
                                     </li>
                             </ul>
                             <!--second-level-->
@@ -101,10 +101,10 @@
                             <a href="#"><i class="fa fa-calendar fa-fw"></i> Club Events Views<span class="fa arrow"></span></a>
                              <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="<?php echo base_url('ClubController/crepeventsviews');?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Club Events & Attendance</a>
+                                        <a href="<?php echo base_url('index.php/ClubController/crepeventsviews');?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Club Events & Attendance</a>
                                     </li>
                                     <li>
-                                        <a href="<?php echo base_url('ClubController/crepevent_report_views');?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Club Events Reports</a>
+                                        <a href="<?php echo base_url('index.php/ClubController/crepevent_report_views');?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Club Events Reports</a>
                                     </li>
                             </ul>
                             <!--second-level-->
@@ -113,10 +113,10 @@
                             <a href="#"><i class="fa fa-info-circle fa-fw"></i> Club Profiles<span class="fa arrow"></span></a>
                              <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="<?php echo base_url(); ?>Home/crep_clubconstitutions"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Club Constitutions</a>
+                                        <a href="<?php echo base_url('index.php/Home/crep_clubconstitutions'); ?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Club Constitutions</a>
                                     </li>
                                     <li>
-                                        <a href="<?php echo base_url(); ?>Home/crep_clubhistories"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Clubs History</a>
+                                        <a href="<?php echo base_url('index.php/Home/crep_clubhistories'); ?>"><i class="fa fa-angle-double-right fa-fw" aria-hidden="true" ></i>Clubs History</a>
                                     </li>
                             </ul>
                             <!--second-level-->

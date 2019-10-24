@@ -3251,8 +3251,66 @@ public function joinClub()/*function to send request to join a club*/
             return strcmp($a->dateUploaded, $b->versionNo);
         }
 
+     public function upload_eventimage()
+            { 
+                if(!($this->session->userdata('clubhead_login')))
+                {
+                          $data = array('profile'=>$this->mainmodel->clubProfile());
+                               $this->load->view('login',$data);
+                }
+                else
+                    {
+                        $clubID = $this->session->userdata('clubEmail');/*get email for logged in club*/
+                        $eventID = $this->input->post('pid'); 
+                        $config['upload_path'] = 'club_uploads/event_images/';
+                        $config['allowed_types'] = 'jpeg|JPEG|jpg|JPG|';
+                        $config['overwrite'] = true;
+                        $config['file_ext_tolower'] = true;
+
+                        $this->load->library('upload', $config);
+                                        $file="eventimage";
+                                        if (!$this->upload->do_upload($file))
+                                        {
+                                             $feedback = array('error' => $this->upload->display_errors(),'success' => "",'files'=>$this->model->event($eventID));
+
+                                              $this->session->set_flashdata('msg',$feedback);
+                                                redirect(base_url(('index.php/ClubController/eventinfo')));
+                                        }
+                                        else
+                                        {
+                                               $db_debug = $this->db->db_debug;
+                                               $this->db->db_debug = FALSE; //disable debugging for queries
+                                                $data =$this->upload->data();
+
+                                                $file_info=array('file_name'=>$data['file_name'],'full_path'=>$data['full_path'],'file_ext'=>$data['file_ext']);
+                                                $ID=array('autoID'=>$eventID);
+
+                                            if($this->db->update('eventinfo',$file_info,$ID))
+                                                {
+                                                    $feedback = array('error' => "",'success' => "Event Image Upload was Successful",'files'=>$this->model->event($eventID));
 
 
+                                                    // usort($feedback, "cmp");
+
+                                                    // $this->load->view('clubheads/addclubconstitution', $feedback);
+                                                     $this->session->set_flashdata('msg',$feedback);
+                                                        redirect(base_url(('index.php/ClubController/eventinfo')));
+                                                }
+                                            else
+                                                {
+                                                    $feedback = array('error' => "Duplicate Entries. The File name already exists. ",'success' => "",'files'=>$this->model->event($eventID));
+
+                                                    $this->session->set_flashdata('msg',$feedback);
+                                                    redirect(base_url(('index.php/ClubController/eventinfo')));
+                                                }
+
+
+                                        }
+
+
+
+                     }
+            }
     public function upload_constitution()
             { if(!($this->session->userdata('clubhead_login')))
                 {
@@ -3293,7 +3351,7 @@ public function joinClub()/*function to send request to join a club*/
                                              $feedback = array('error' => $this->upload->display_errors(),'success' => "",'files'=>$this->model->getconstitutions($clubID));
 
                                               $this->session->set_flashdata('msg',$feedback);
-                                                redirect(base_url(('ClubController/addclubconstitution')));
+                                                redirect(base_url(('index.php/ClubController/addclubconstitution')));
                                         }
                                         else
                                         {
@@ -3318,14 +3376,14 @@ public function joinClub()/*function to send request to join a club*/
 
                                                     // $this->load->view('clubheads/addclubconstitution', $feedback);
                                                      $this->session->set_flashdata('msg',$feedback);
-                                                        redirect(base_url(('ClubController/addclubconstitution')));
+                                                        redirect(base_url(('index.php/ClubController/addclubconstitution')));
                                                 }
                                             else
                                                 {
                                                     $feedback = array('error' => "Duplicate Entries. The Constitution or File name already exists. ",'success' => "",'files'=>$this->model->getconstitutions($clubID));
 
                                                     $this->session->set_flashdata('msg',$feedback);
-                                                    redirect(base_url(('ClubController/addclubconstitution')));
+                                                    redirect(base_url(('index.php/ClubController/addclubconstitution')));
                                                 }
 
 
@@ -3379,7 +3437,7 @@ public function joinClub()/*function to send request to join a club*/
                                              $feedback = array('error' => $this->upload->display_errors(),'success' => "",'files'=>$this->model->getuploads($clubID));
 
                                               $this->session->set_flashdata('msg',$feedback);
-                                                redirect(base_url(('ClubController/addclubupload')));
+                                                redirect(base_url(('index.php/ClubController/addclubupload')));
                                         }
                                         else
                                         {
@@ -3404,14 +3462,14 @@ public function joinClub()/*function to send request to join a club*/
 
                                                     // $this->load->view('clubheads/addclubconstitution', $feedback);
                                                      $this->session->set_flashdata('msg',$feedback);
-                                                        redirect(base_url(('ClubController/addclubupload')));
+                                                        redirect(base_url(('index.php/ClubController/addclubupload')));
                                                 }
                                             else
                                                 {
                                                     $feedback = array('error' => "Duplicate Entries. The Report or File name already exists. ",'success' => "",'files'=>$this->model->getuploads($clubID));
 
                                                     $this->session->set_flashdata('msg',$feedback);
-                                                    redirect(base_url(('ClubController/addclubupload')));
+                                                    redirect(base_url(('index.php/ClubController/addclubupload')));
                                                 }
 
 
@@ -3495,7 +3553,7 @@ public function joinClub()/*function to send request to join a club*/
                                              $feedback = array('error' => $this->upload->display_errors(),'success' => "",'files'=>$this->model->getclubminutes($clubID));
 
                                               $this->session->set_flashdata('msg',$feedback);
-                                                redirect(base_url(('ClubController/addminutes')));
+                                                redirect(base_url(('index.php/ClubController/addminutes')));
                                         }
                                         else
                                         {
@@ -3516,14 +3574,14 @@ public function joinClub()/*function to send request to join a club*/
 
                                                     // $this->load->view('clubheads/addclubconstitution', $feedback);
                                                      $this->session->set_flashdata('msg',$feedback);
-                                                        redirect(base_url(('ClubController/addminutes')));
+                                                        redirect(base_url(('index.php/ClubController/addminutes')));
                                                 }
                                             else
                                                 {
                                                     $feedback = array('error' => "Duplicate Entries. The Minutes or File name already exists. ",'success' => "",'files'=>$this->model->getclubminutes($clubID));
 
                                                  $this->session->set_flashdata('msg',$feedback);
-                                                redirect(base_url(('ClubController/addminutes')));
+                                                form_open(base_url(('ClubController/addminutes')));
                                                 }
 
 
@@ -3618,14 +3676,14 @@ public function joinClub()/*function to send request to join a club*/
                                         $feedback = array('error'=>"",'success' => "The Minutes have been  successfully deleted",'files'=>$this->model-> getclubminutes($clubID));
 
                                                  $this->session->set_flashdata('msg',$feedback);
-                                                redirect(base_url('ClubController/addminutes'));
+                                                redirect(base_url('index.php/ClubController/addminutes'));
                                 }else {
                                         $this->load->helper("file");
                                         // unlink(APPPATH.'club_uploads/club_minutes/'.$filename);
                                         $feedback = array('error'=>"Failed to delete minutes",'success' => "",'files'=>$this->model-> getclubminutes($clubID));
 
                                                  $this->session->set_flashdata('msg',$feedback);
-                                                redirect(base_url('ClubController/addminutes'));
+                                                redirect(base_url('index.php/ClubController/addminutes'));
                                     }
                     }
         }
@@ -3816,7 +3874,7 @@ public function joinClub()/*function to send request to join a club*/
                                              $feedback = array('error' => $this->upload->display_errors(),'success' => "",'files'=>$this->model->getclubhistories($clubID));
 
                                               $this->session->set_flashdata('msg',$feedback);
-                                                redirect(base_url(('ClubController/addclubhistory')));
+                                                redirect(base_url(('index.php/ClubController/addclubhistory')));
                                         }
                                         else
                                         {
@@ -3840,14 +3898,14 @@ public function joinClub()/*function to send request to join a club*/
 
                                                     // $this->load->view('clubheads/addclubhistory', $feedback);
                                                      $this->session->set_flashdata('msg',$feedback);
-                                                        redirect(base_url(('ClubController/addclubhistory')));
+                                                        redirect(base_url(('index.php/ClubController/addclubhistory')));
                                                 }
                                             else
                                                 {
                                                     $feedback = array('error' => "Duplicate Entries. The Constitution or File name already exists. ",'success' => "",'files'=>$this->model->getclubhistories($clubID));
 
                                                  $this->session->set_flashdata('msg',$feedback);
-                                                redirect(base_url(('ClubController/addclubhistory')));
+                                                redirect(base_url(('index.php/ClubController/addclubhistory')));
                                                 }
 
 

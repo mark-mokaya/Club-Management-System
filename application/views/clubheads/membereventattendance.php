@@ -203,8 +203,8 @@
                     var table=$('#eventattendancelist').DataTable({paging:false,responsive:true,"iDisplayLength": 10,"lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25, 50, 100, 200, "All"]],
                     // var table=$('#eventattendancelist').DataTable({"aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
                   "ajax": {
-                    "url":"<?php echo base_url('ClubController/clubmemberslist')?>",
-                    "type":"POST",
+                    "url":"<?php echo base_url('index.php/ClubController/clubmemberslist')?>",
+                    "type":"GET",
                     "dataType":"json"},
                     "columns": [
                     { "data": "count" ,responsivePriority: 1},//define column widths
@@ -280,7 +280,7 @@ $(function(){
              $.ajax(//ajax script to post the data without page refresh
                 {
                     type:"post",
-                    url: "<?php echo base_url('ClubController/eventattendancerecord')?>",
+                    url: "<?php echo base_url('index.php/ClubController/eventattendancerecord')?>",
                     
                     data: {eventid:eventid,selected:selected},
                     dataType:'json',
@@ -321,7 +321,7 @@ $(function(){
      $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>ClubController/eventsdropdown",
+                    url: "<?php echo base_url('index.php/ClubController/eventsdropdown'); ?>",
                     dataType:'json',
 
                     success:function(data)

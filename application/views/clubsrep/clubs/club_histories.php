@@ -91,7 +91,7 @@
                             <td class="text-center">
 
                             <span data-placement="top" data-toggle="tooltip" title="Download History">
-                                        <a href="<?php echo base_url();?>ClubController/download_clubhistory/<?php echo $file->file_name;?>"style="text-decoration: none"><span><i class="fa fa-download fa-lg"></i></span>
+                                        <a href="<?php echo base_url('index.php/ClubController/download_clubhistory/');?><?php echo $file->file_name;?>"style="text-decoration: none"><span><i class="fa fa-download fa-lg"></i></span>
                                         </a></span>
                             </span>
 

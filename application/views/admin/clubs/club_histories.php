@@ -91,12 +91,12 @@
                             <td class="text-center">
 
                             <span data-placement="top" data-toggle="tooltip" title="Download History">
-                                        <a href="<?php echo base_url();?>ClubController/download_clubhistory/<?php echo $file->file_name;?>"style="text-decoration: none"><span><i class="fa fa-download fa-lg"></i></span>
+                                        <a href="<?php echo base_url('index.php/ClubController/download_clubhistory/');?><?php echo $file->file_name;?>"style="text-decoration: none"><span><i class="fa fa-download fa-lg"></i></span>
                                         </a></span>
                             </span>
                                 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                             <span data-placement="top" data-toggle="tooltip" title="Delete History">
-                                <a  href="<?php echo base_url();?>Home/delete_clubhistory<?php echo "?histID="; echo  $file->autoID;?>"  style="text-decoration: none"><span><i class="fa fa-trash fa-lg" style="color:red"></i></span>
+                                <a  href="<?php echo base_url('index.php/Home/delete_clubhistory');?><?php echo "?histID="; echo  $file->autoID;?>"  style="text-decoration: none"><span><i class="fa fa-trash fa-lg" style="color:red"></i></span>
                                 </a>
 
                             </td>

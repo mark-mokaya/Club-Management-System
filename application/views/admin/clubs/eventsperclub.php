@@ -89,8 +89,8 @@
                  var table=$('#eventslist').DataTable({responsive:true,"iDisplayLength": 10,"lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25, 50, 100, 200, "All"]],
 
                     "ajax": {
-                    "url":'<?php echo base_url('ClubController/eventsperclub');?>'+"?clubID="+clubID,
-                    "type":"POST",
+                    "url":'<?php echo base_url('index.php/ClubController/eventsperclub');?>'+"?clubID="+clubID,
+                    "type":"GET",
                     "dataType":"json"},
                     "columns": [
                     { "data": "count",responsivePriority: 1 },//define column widths
@@ -141,7 +141,7 @@
                 $.ajax(
                     {
                         type:"post",
-                        url: "<?php echo base_url(); ?>Home/clubdropdownlist",
+                        url: "<?php echo base_url('index.php/Home/clubdropdownlist'); ?>",
                         dataType:'json',
 
                         success:function(data)
@@ -184,7 +184,7 @@ $('#clubid').on('change', function()
                    var table=$('#eventslist').DataTable({responsive:true,"iDisplayLength": 10,"lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25, 50, 100, 200, "All"]],
 
                     "ajax": {
-                    "url":'<?php echo base_url('ClubController/eventsperclub');?>'+"?clubID="+clubID,
+                    "url":'<?php echo base_url('index.php/ClubController/eventsperclub');?>'+"?clubID="+clubID,
                     "type":"POST",
                     "dataType":"json"},
                     "columns": [
@@ -243,7 +243,7 @@ function viewattendance(objButton)
       var eventID=objButton.value;
         var clubName=$('#clubid option:selected').text();
       
-      window.location.href = '<?php echo base_url('ClubController/vieweventattperclubid');?>?eventID='+eventID+'&clubName='+clubName;
+      window.location.href = '<?php echo base_url('index.php/ClubController/vieweventattperclubid');?>?eventID='+eventID+'&clubName='+clubName;
     }
 
 

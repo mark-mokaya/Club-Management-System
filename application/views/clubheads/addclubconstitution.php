@@ -57,8 +57,7 @@
                         </div> 
                 </div>';}?>
                             
-              <?php echo form_open_multipart('ClubController/upload_constitution');?>
-              
+              <?php echo form_open_multipart('index.php/ClubController/upload_constitution');?>
                 <div class="form-group col-lg-6">
                     <label>File Upload</label> <span class="star">*</span>
                     <input class="form-control" name="constitution" id="constitution" type="file" parsley-trigger="change" required autocomplete="off" size="20">
@@ -104,7 +103,7 @@
                        
                             <td class="text-center">
                                 <span data-placement="top" data-toggle="tooltip" title="Download Constitution">
-                                        <a href="<?php echo base_url();?>ClubController/download_constitution/<?php echo $file->file_name;?>"style="text-decoration: none"><span><i class="fa fa-download fa-lg"></i></span>
+                                        <a href="<?php echo base_url('index.php/ClubController/download_constitution/');?><?php echo $file->file_name;?>"style="text-decoration: none"><span><i class="fa fa-download fa-lg"></i></span>
                                         </a>
                                 </span>
                             </span>
@@ -127,7 +126,7 @@
 
 
 <script>
-$(document).ready(function () 
+$(document).ready(function() 
 
    {
     var table=$('#constitutionslist').DataTable({responsive:true,"iDisplayLength": 10,"lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25, 50, 100, 200, "All"]],columnDefs: [ { orderable: false, targets: [1] }]

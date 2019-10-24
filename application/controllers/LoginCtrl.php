@@ -37,7 +37,7 @@ public function login()
         $username = $this->input->post('username');
         $password = $this->input->post('password');
         $result = $this->login->validate_ldap_official($username,$password);//clubofficial
-        //$result3 = $this->login->validate_ldap_stdcouncil($username);//clubofficial//student council (student)
+        $result3 = $this->login->validate_ldap_stdcouncil($username,$password);//clubofficial//student council (student)
         //$result2 = $this->login->validate_ldap_admin($username);//admin*/
         $result2 = $this->login->validate_ldap_admin($username,$password);//admin
         
@@ -99,7 +99,7 @@ public function login()
 
                             }
                             redirect($redirectLink);
-                }/*else if($result3&&!$result)
+                }else if($result3&&!$result)
                     {
                         //take the returned data and create a session for it (adminName and adminID) for clubs representative-student council.
                         foreach ($result3 as $row)
@@ -113,26 +113,25 @@ public function login()
                                             $this->session->set_userdata($sessdata);
 
                                 }
-                                redirect('Home/crep');
+                                redirect('index.php/Home/crep');
                     }else if($result3 && $result)
                     {
                         //if the student council member has an active role in any club then prevent access. Not allowed to be clubs rep and club official.
 
                         $_SESSION['msg'] = array('error' => "Login failed",'success'=>'');
 
-                            redirect('Home/crep');
+                            redirect('index.php/Home/crep');
 
                     }else
                         {
                           $_SESSION['msg'] = array('error' => "Wrong credentials. Please try again",'success'=>'');
                                 // $this->cas->logout();
-                                redirect(base_url('Home'));
+                                redirect(base_url('index.php/Home'));
 
                         }
 
 
        }
-
 public function usertype()
     {
 
@@ -160,18 +159,18 @@ public function usertype()
 
                                     }
 
-                            redirect('ClubController/clubpage');
+                            redirect('index.php/ClubController/clubpage');
 
                             // $this->load->view('clubheads/clubmemberreg');
                         }
 
         if($clubsess!=="" && $clubID=="")
             {
-                redirect('ClubController/rolespage');
+                redirect('index.php/ClubController/rolespage');
             }
 
     }
-*/}
+
 public function logoutadmin()
     {
         $this->session->unset_userdata('fullName');
@@ -183,7 +182,7 @@ public function logoutadmin()
         //$this->cas->logout($url = ''); // Log out of CAS @lkasera
         $this->load->view('login',$data);
     }
-/*
+
 public function logoutclub()
     {
         $this->session->unset_userdata('clubName');
@@ -192,10 +191,10 @@ public function logoutclub()
         $this->session->unset_userdata('officialName');
         // $data = array('profile'=>$this->mainmodel->clubProfile());
         // $this->load->view('login',$data);
-
-        $this->cas->logout($url = ''); // Log out of CAS @lkasera
-        redirect(base_url(('Home')));
-*/
+        $this->load->view('login');
+        //$this->cas->logout($url = ''); // Log out of CAS @lkasera
+        //redirect(base_url(('Home')));
+}
     
 }
 ?>

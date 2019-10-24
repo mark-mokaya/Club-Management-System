@@ -92,9 +92,9 @@
                             <form role="form" method="POST" action="" id="adminreg">
                                        <div class="messagebox alert alert-info" style="display:block;position:relative;width:100%;left:0%;top:0%">
                                                 <button type="button" class="close" data-dismiss="alert"></button>
-                                                <div class="cs-text">
+                                                <!--<div class="cs-text">
                                                     <span style="font-size: 12px;color: red;font-weight: bold">Username must be unique to see submit button</span><br />
-                                                </div>
+                                                </div>-->
                                         </div>
                                         <div class="form-group col-lg-12">
                                             <label>Staff ID</label><span class="star">*</span>
@@ -138,7 +138,7 @@
                                                 </select>
                                         </div>
                                                                              
-                                        <button type="submit" class="btn btn-success" id="submit" style="display: none;">Submit </button>
+                                        <button type="submit" class="btn btn-success" id="submit" style="">Submit </button>
                                         <button type="reset" class="btn btn-default " id="reset">Reset </button>
                                         <button type="button" class="btn " data-dismiss="modal" aria-hidden="true">EXIT</button>
                                          

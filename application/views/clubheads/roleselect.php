@@ -46,7 +46,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li class="divider"></li>
-                        <li><a href="<?php echo base_url('LoginCtrl/logoutclub'); ?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="<?php echo base_url('index.php/LoginCtrl/logoutclub'); ?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -80,7 +80,7 @@
             <div class="row" >
                 <div class="col-lg-12">
 
-                    <form action="<?php echo base_url(); ?>LoginCtrl/usertype" method="POST">
+                    <form action="<?php echo base_url('index.php/LoginCtrl/usertype'); ?>" method="POST">
                             <div class="form-group col-lg-8" >
                                 <label for="" style="color:blue"></label>
                                     <select id="clubid" name="clubid" class="form-control" parsley-trigger="change" required>
@@ -127,7 +127,7 @@
      $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/officialroles",
+                    url: "<?php echo base_url('index.php/Home/officialroles'); ?>",
                     dataType:'json',
 
                     success:function(data)

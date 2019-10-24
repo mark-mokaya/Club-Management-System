@@ -364,8 +364,8 @@
             var table=$('#meetingslist').DataTable({responsive:true,"iDisplayLength": 10,"lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25, 50, 100, 200, "All"]],
 
                     "ajax": {
-                    "url":"<?php echo base_url('ClubController/meetingslist');?>",
-                    "type":"POST",
+                    "url":"<?php echo base_url('index.php/ClubController/meetingslist');?>",
+                    "type":"GET",
                     "dataType":"json"},
                     "columns": [
                     { "data": "count",responsivePriority: 1 },//define column widths
@@ -420,7 +420,7 @@ $( "#addmeetingbtn").on('click', function(event)
              $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/clubofficialsdropdownlist",
+                    url: "<?php echo base_url('index.php/Home/clubofficialsdropdownlist'); ?>",
                     dataType:'json',
 
                     success:function(data)
@@ -485,7 +485,7 @@ function submitData()
             $.ajax(//ajax script to post the data without page refresh
                 {
                     type:"post",
-                    url: "<?php echo base_url('ClubController/meetinginfosave');?>",
+                    url: "<?php echo base_url('index.php/ClubController/meetinginfosave');?>",
                     data:{ meetingdate:meetingdate,meetingvenue:meetingvenue,starttime:starttime,endtime:endtime,studentpid:studentpid},
                     dataType:'json',
 
@@ -550,7 +550,7 @@ function editmeeting(objButton)
      $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>ClubController/getmeetinginfo",
+                    url: "<?php echo base_url('index.php/ClubController/getmeetinginfo'); ?>",
                     data:{ pid:pid},
                     dataType:'json',
 
@@ -588,7 +588,7 @@ $( "#updatemeetinginfo #studentid").on('click', function(event)
             $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/clubofficialsdropdownlist",
+                    url: "<?php echo base_url('index.php/Home/clubofficialsdropdownlist'); ?>",
                     dataType:'json',
 
                     success:function(data)
@@ -639,7 +639,7 @@ function update()
             $.ajax(//ajax script to post the data without page refresh
                 {
                     type:"post",
-                    url: "<?php echo base_url('ClubController/meetinginfoupdate');?>",
+                    url: "<?php echo base_url('index.php/ClubController/meetinginfoupdate');?>",
                     data:{ pid:pid,meetingdate:meetingdate,meetingvenue:meetingvenue,starttime:starttime,endtime:endtime,studentpid:studentpid},
                     dataType:'json',
 
@@ -704,7 +704,7 @@ function deletemeeting(objButton)
             $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>ClubController/deletemeeting",
+                    url: "<?php echo base_url('index.php/ClubController/deletemeeting'); ?>",
                     data:{ id:id},
                     dataType:'json',
 

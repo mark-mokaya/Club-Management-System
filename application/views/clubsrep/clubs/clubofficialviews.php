@@ -271,8 +271,8 @@
 
                     //ajax script to retrieve data club officials from db
                     "ajax": {
-                    "url":'<?php echo base_url(); ?>Home/viewclubofficialslist'+"?clubID="+clubID,
-                    "type":"POST",
+                    "url":'<?php echo base_url('index.php/Home/viewclubofficialslist'); ?>'+"?clubID="+clubID,
+                    "type":"GET",
                     "dataType":"json"},
                     "columns": [
                     { "data": "count",responsivePriority: 1 },//define column widths
@@ -321,7 +321,7 @@
                 $.ajax(
                     {
                         type:"post",
-                        url: "<?php echo base_url(); ?>Home/clubdropdownlist",
+                        url: "<?php echo base_url('index.php/Home/clubdropdownlist'); ?>",
                         dataType:'json',
 
                         success:function(data)
@@ -357,7 +357,7 @@ $('#clubid').on('change', function(event)
 
                     //ajax script to retrieve data club officials from db
                     "ajax": {
-                    "url":'<?php echo base_url(); ?>Home/viewclubofficialslist'+"?clubID="+clubID,
+                    "url":'<?php echo base_url('index.php/Home/viewclubofficialslist'); ?>'+"?clubID="+clubID,
                     "type":"POST",
                     "dataType":"json"},
                     "columns": [
@@ -379,7 +379,8 @@ $('#clubid').on('change', function(event)
                       "mRender": function ( data, type, full ) 
                       {
                         
-                        return ' <span data-placement="top" data-toggle="tooltip" title="Delete Official"><button class="btn btn-danger btn-xs" data-title="Delete"   id="delete" onclick="deleteclubofficial(this);" value="'+data+'"><span class="glyphicon glyphicon-trash" ></span></button></span> &nbsp;                                                                                                           <span data-placement="top" data-toggle="tooltip" title="Edit Official"><button class="btn btn-primary btn-xs" data-title="Edit" onclick="editcofficial(this);" id="edit" value="'+data+'"><span class="glyphicon glyphicon-pencil"></span></button></span>&nbsp;                                                                                                                                                                                                                        <span data-placement="top" data-toggle="tooltip" title="View Profile"><button class="btn btn-xs" data-title="View Profile" onclick="c_o_view(this);" id="view" value="'+data+'"><span class="glyphicon glyphicon-eye-open"></span></button></span>&nbsp;                                                                                                                                                                                                                                            <span data-placement="top" data-toggle="tooltip" title="Disable Official"><button class="btn btn-xs" data-title="Disable Official" onclick="disableclubofficial(this);" id="disable" value="'+data+'"><span class="fa fa-user-times"></span></button></span>&nbsp;                                    ';
+                        return '                                                                                                           <span data-placement="top" data-toggle="tooltip" title="Edit Official"><button class="btn btn-primary btn-xs" data-title="Edit" onclick="editcofficial(this);" id="edit" value="'+data+'"><span class="glyphicon glyphicon-pencil"></span></button></span>&nbsp;                                                                                                                                                                                                                        <span data-placement="top" data-toggle="tooltip" title="View Profile"><button class="btn btn-xs" data-title="View Profile" onclick="c_o_view(this);" id="view" value="'+data+'"><span class="glyphicon glyphicon-eye-open"></span></button></span>&nbsp;     ';                                                                                                                                                                                                                                //<span data-placement="top" data-toggle="tooltip" title="Delete Official"><button class="btn btn-danger btn-xs" data-title="Delete"   id="delete" onclick="deleteclubofficial(this);" value="'+data+'"><span class="glyphicon glyphicon-trash" ></span></button></span> &nbsp;       
+                         //<span data-placement="top" data-toggle="tooltip" title="Disable Official"><button class="btn btn-xs" data-title="Disable Official" onclick="disableclubofficial(this);" id="disable" value="'+data+'"><span class="fa fa-user-times"></span></button></span>&nbsp;                                   
                          
                         
                       }
@@ -426,7 +427,7 @@ function update()
             $.ajax(//ajax script to post the data without page refresh
                 {
                     type:"post",
-                    url: "<?php echo base_url('Home/clubofficialupdating')?>",
+                    url: "<?php echo base_url('index.php/Home/clubofficialupdating')?>",
                     data:{ username:username,officialid:officialid,club:club,role:role,startdate:startdate,enddate:enddate},
                    
                     dataType:'json',
@@ -477,7 +478,7 @@ function editcofficial(objButton)
      $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/getclubofficial",
+                    url: "<?php echo base_url('index.php/Home/getclubofficial'); ?>",
                     data:{ id:id},
                     dataType:'json',
 
@@ -540,7 +541,7 @@ $( "#editclubofficialreg #club").on('click',function(event)
      $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/clubdropdownlist",
+                    url: "<?php echo base_url('index.php/Home/clubdropdownlist'); ?>",
                     dataType:'json',
 
                     success:function(data)
@@ -590,7 +591,7 @@ $( "#editclubofficial #editclubofficialreg #role").on('click', function(event)
      $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/c_rolesdropdown",
+                    url: "<?php echo base_url('index.php/Home/c_rolesdropdown'); ?>",
                     dataType:'json',
 
                     success:function(data)
@@ -637,7 +638,7 @@ function c_o_view(objButton)
      $.ajax(
                 {
                     type:"post",
-                    url: "<?php echo base_url(); ?>Home/viewclubofficial",
+                    url: "<?php echo base_url('index.php/Home/viewclubofficial'); ?>",
                     data:{ id:id},
                     dataType:'json',
 
@@ -676,7 +677,7 @@ $( "#print").on('click', function()
              $.ajax(
                     {
                          type:"post",
-                        url: "<?php echo base_url('Home/perclubofficials')?>",
+                        url: "<?php echo base_url('index.php/Home/perclubofficials')?>",
                         data:{ clubEmail:clubEmail},
                         dataType:'json',
 
@@ -684,7 +685,7 @@ $( "#print").on('click', function()
                         {
                             var feedback=data.clubID;
 
-                            location.href="<?php echo base_url(); ?>Home/perclubofficialspdf"+'?clubID='+feedback;
+                            location.href="<?php echo base_url('index.php/Home/perclubofficialspdf'); ?>"+'?clubID='+feedback;
                         }
                     });
         });

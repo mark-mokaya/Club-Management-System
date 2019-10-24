@@ -20,7 +20,7 @@
 
     <!-- Custom Fonts -->
     <link href="<?php echo base_url();?>assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <style>
+    <!--<style>
       .slide:nth-child(1) .slide__bg
         {
           left: 0;
@@ -42,7 +42,7 @@
           left: -150%;
           background-image: url('<?php echo base_url();?>assets/img/clubawards.jpg');
         }
-    </style>
+    </style>-->
 </head>
 
 <body>
@@ -128,7 +128,7 @@
     </div>
 </nav>
 
-
+<!--
 <div class="slider-container" style="margin-top: 2%">
   <div class="slider-control left inactive"></div>
   <div class="slider-control right"></div>
@@ -144,7 +144,7 @@
           <h2 class="slide__text-heading" style="font-weight: bolder"><span style="color: red">Upcoming:</span> Club Olympics<span style="color:darkred"> : </span><span style="color: black">Friday 9<sup>th</sup> June, 2017</span></h2>
           <p class="slide__text-desc">Join a team of smart and outgoing students from various clubs in this year's club olympics. Play, win and have fun</p>
           <!-- <a href="http://hkmbhutto.wix.com/abdulrasheed"
-          class="slide__text-link">Project link</a> -->
+          class="slide__text-link">Project link</a> 
         </div>
       </div>
     </div>
@@ -158,7 +158,7 @@
           <h2 class="slide__text-heading" style="font-weight: bolder;"> <span style="color: red">Annual</span> Club Awards </h2>
           <p class="slide__text-desc" style="color: black">Each year, the Dean of Students Awards the Most Outstanding Clubs in various areas e.g. Best Club Report, Most Rewarding Club, Best Organized Club Event etc </p>
          <!--  <a href="http://hkmbhutto.wix.com/abdulrasheed"
-          class="slide__text-link">Project link</a> -->
+          class="slide__text-link">Project link</a>
         </div>
       </div>
     </div>
@@ -172,7 +172,7 @@
           <h2 class="slide__text-heading" style="font-weight: bolder;color: darkred">Student of the Month Launched</h2>
           <p class="slide__text-desc" style="color: black">The student council last week launched a monthly award program to recognize the most outstanding student overall in such areas as innovation, entrepreneurship, community service etc.</p>
           <!-- <a href="http://hkmbhutto.wix.com/abdulrasheed"
-          class="slide__text-link">Project link</a> -->
+          class="slide__text-link">Project link</a> 
         </div>
       </div>
     </div>
@@ -186,14 +186,46 @@
           <h2 class="slide__text-heading" style="font-weight: bolder;"> Club Awards for the year 2016</h2>
           <p class="slide__text-desc" style="color: black">Each year, the Dean of Students Awards the Most Outstanding Clubs in various areas e.g. Best Club Report, Most Rewarding Club, Best Organized Club Event etc </p>
           <!-- <a href="http://hkmbhutto.wix.com/abdulrasheed"
-          class="slide__text-link">Project link</a> -->
+          class="slide__text-link">Project link</a>
         </div>
 
       </div>
     </div>
-  </div>
+      </div>
+</div>-->
+<div class="slider-container" style="margin-top: 2%">
+  <div class="slider-control left inactive"></div>
+  <div class="slider-control right"></div>
+  <ul class="slider-pagi"></ul>
+  <div class="slider">
+    <?php
+    $counter = 0;
+    $left = 0;
+    foreach ($events as $value) 
+      {
+        echo '<style>
+      .slide:nth-child('; echo $counter+1; echo ') .slide__bg
+        {
+          left:';echo $left; echo'%;
+          background-image: url('; echo base_url('club_uploads/event_images/'.$value->file_name); echo');
+        }
+          </style>';
+        echo'
+    <div class="slide slide-'; echo $counter; echo 'active">
+      <div class="slide__content">
+        <svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
+          <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
+        </svg>
+        <div class="slide__text">
+          <h2 class="slide__text-heading" style="font-weight: bolder"><span style="color: black">';echo $value->description;echo '</span><span style="color: black">';echo $value->eventDate; echo'</span></h2>
+          <p class="slide__text-desc">';echo $value->eventVenue; echo'</p>
+        </div>
+      </div>
+    </div>';
+    $left = $left-50;
+    $counter++;}?>
+    </div>
 </div>
-
 
 <section id="services" style="background-color: white; margin-bottom: 2%">
         <div class="container">
@@ -617,7 +649,7 @@ function submitData(objButton)
                $.ajax(//ajax script to post the data without page refresh
                   {
                       type:"post",
-                      url: "<?php echo base_url('ClubController/joinClub');?>",
+                      url: "<?php echo base_url('index.php/ClubController/joinClub');?>",
                       data:{ suid:suid,lastname:lastname,firstname:firstname,gender:gender,phone:phone,suemail:suemail,course:course,clubemail:clubemail},
                       dataType:'json',
 
