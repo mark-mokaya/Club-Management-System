@@ -20,11 +20,28 @@
 
     <!-- Custom Fonts -->
     <link href="<?php echo base_url();?>assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <!--<style>
+    <?php 
+      $counter = 1;
+      $left = 0;
+      $route = "/assets/img/";
+      echo '<style>';
+    foreach ($events as $value) 
+      {
+        echo '.slide:nth-child('; echo $counter; echo') .slide__bg
+        {
+          left:'; echo $left; echo'%;
+          background-image: url('; echo base_url($route.$value->file_name); echo');
+        }';
+        $left = $left-50;
+        $counter++;
+      }
+      echo '</style>';
+      ?><!--
+    <style>
       .slide:nth-child(1) .slide__bg
         {
           left: 0;
-          background-image: url('<?php echo base_url();?>assets/img/club_olympics.jpg');
+          background-image: url('<?php echo base_url('/assets/img/club_olympics.jpg');?>');
         }
 
         .slide:nth-child(2) .slide__bg
@@ -203,15 +220,21 @@
     $left = 0;
     foreach ($events as $value) 
       {
-        echo '<style>
-      .slide:nth-child('; echo $counter+1; echo ') .slide__bg
-        {
-          left:';echo $left; echo'%;
-          background-image: url('; echo base_url('club_uploads/event_images/'.$value->file_name); echo');
-        }
-          </style>';
-        echo'
-    <div class="slide slide-'; echo $counter; echo 'active">
+        echo '<div class="slide slide-'; echo $counter; echo' active">
+      <div class="slide__bg"></div>
+      <div class="slide__content">
+        <svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
+          <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
+        </svg>
+        <div class="slide__text">
+          <h2 class="slide__text-heading" style="font-weight: bolder"><span style="color: black">';echo $value->description;echo ' on </span> <span style="color: black">';echo $value->eventDate; echo'</span></h2>
+          <p class="slide__text-desc">';echo $value->eventVenue; echo' at '.$value->startTime; echo'</p>
+        </div>
+      </div>
+    </div>';
+        /*echo'
+    <div class="slide slide-'; echo $counter; echo '">
+    <div class="slide__bg"></div>
       <div class="slide__content">
         <svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
           <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
@@ -221,7 +244,7 @@
           <p class="slide__text-desc">';echo $value->eventVenue; echo'</p>
         </div>
       </div>
-    </div>';
+    </div>';*/
     $left = $left-50;
     $counter++;}?>
     </div>
