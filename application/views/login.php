@@ -36,28 +36,29 @@
         $counter++;
       }
       echo '</style>';
-      ?><!--
+      ?>
+    <!--
     <style>
       .slide:nth-child(1) .slide__bg
         {
           left: 0;
-          background-image: url('<?php echo base_url('/assets/img/club_olympics.jpg');?>');
+          background-image: url('<?php //echo base_url('/assets/img/club_olympics.jpg');?>');
         }
 
         .slide:nth-child(2) .slide__bg
         {
           left: -50%;
-          background-image: url('<?php echo base_url();?>assets/img/clubawards.jpg');
+          background-image: url('<?php //echo base_url();?>assets/img/clubawards.jpg');
         }
         .slide:nth-child(3) .slide__bg
         {
           left: -100%;
-          background-image: url('<?php echo base_url();?>assets/img/studentcouncil.jpg');
+          background-image: url('<?php //echo base_url();?>assets/img/studentcouncil.jpg');
         }
         .slide:nth-child(4) .slide__bg
         {
           left: -150%;
-          background-image: url('<?php echo base_url();?>assets/img/clubawards.jpg');
+          background-image: url('<?php //echo base_url();?>assets/img/clubawards.jpg');
         }
     </style>-->
 </head>
